@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ "$1" == "" ]; then
+    vim $HOME/.vimrc
+elif [ "$1" == "git" ]; then
+    vim $HOME/.gitconfig
+elif [ "$1" == "bash" ]; then
+    vim $HOME/.bashrc
+elif [ "$1" == "tmux" ]; then
+    vim $HOME/.tmux.conf
+elif [ "$1" == "e" ]; then
+    vim $HOME/bin/edt
+elif [ "$1" == "zsh" ]; then
+    vim $HOME/.zshrc
+fi
+
+
+
+
+
