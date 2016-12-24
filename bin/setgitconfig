@@ -1,6 +1,0 @@
-#!/bin/bash
-
-git config --global cuser.name "Mateusz Koltun"
-git config --global cuser.email "mateusz.koltun2@mail.dcu.ie"
-git config --global core.editor "atom --wait"
-git config credential.helper cache

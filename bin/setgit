@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+
+if [ "$1" == "dcu" ]; then
+    if [ "$2" == "g" ]; then
+        git config --global user.name "Mateusz Koltun"
+        git config --global user.email "mateusz.koltun2@mail.dcu.ie"
+        git config --global core.editor "vim"
+        git config credential.helper cache
+    else
+        git config user.name "Mateusz Koltun"
+        git config user.email "mateusz.koltun2@mail.dcu.ie"
+        git config core.editor "vim"
+        git config credential.helper cache
+    fi
+elif [ "$1" == "hub" ]; then
+     if [ "$2" == "g" ]; then
+        git config --global user.name "Matthew Koltun"
+        git config --global user.email "mati@koltunm.com"
+        git config --global core.editor "vim"
+        git config credential.helper cache
+    else
+        git config user.name "Matthew Koltun"
+        git config user.email "mati@koltunm.com"
+        git config core.editor "vim"
+        git config credential.helper cache
+    fi
+fi
