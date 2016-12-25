@@ -84,7 +84,7 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 
-setxkbmap -option caps:escape
+/usr/bin/setxkbmap -option "ctrl:swapcaps"
 
 export PATH="$HOME/bin:$PATH"
 

@@ -178,7 +178,7 @@ augroup configgroup
     let g:markdown_fenced_languages = ['css', 'javascript', 'js=javascript', 'json=javascript', 'stylus', 'html']
     autocmd BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
     
-    autocmd!BufWritePost * Neomake
+"    autocmd!BufWritePost * Neomake
 augroup END
     
 
@@ -205,19 +205,6 @@ let g:SuperTabCrMapping = 0
 
 
 " vim:foldmethod=marker:foldlevel=0"
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
