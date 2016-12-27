@@ -120,6 +120,10 @@ nmap ci, f,cT,
 nmap da, f,ld2F,i,<ESC>l 
 nmap ca, f,ld2F,i,<ESC>a
 
+nmap H ^
+nmap L $
+
+
 nmap G Gzz
 nmap n nzz
 nmap N Nzz
