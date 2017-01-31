@@ -94,6 +94,7 @@ export PS1="\[\033[38;5;9m\]\h\[$(tput sgr0)\]\[\033[38;5;121m\] > \[$(tput sgr0
 export GIT_EDITOR=vim
 export VISAUL=vim
 export EDITOR="$VISUAL"
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.5
 
 #if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
 #    source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh

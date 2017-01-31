@@ -17,6 +17,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 
+Plugin 'ryanoasis/vim-devicons'
 " --------- THEMES ----------
 Plugin 'bcicen/vim-vice'
 Plugin 'tstelzer/welpe.vim'
@@ -45,6 +46,8 @@ let mapleader = " "
 
 
 syntax enable
+set encoding=utf8
+set guifont=Mononoki\ 12
 
 set list
 set listchars=tab:▸\ ,eol:¬
@@ -81,6 +84,7 @@ set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 set laststatus=2
 set t_Co=256
 
+let g:ycm_server_python_interpreter = '/usr/bin/python'
 
 let g:ctrlp_map = 'Q'
 let g:ctrlp_cmd = 'CtrlP'
@@ -93,6 +97,7 @@ inoremap <S-tab> <C-D>
 
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
+nmap <leader>n :noh
 
 
 set pastetoggle=<leader>v
@@ -161,13 +166,9 @@ nmap <silent> T :NERDTreeFind<cr>
 " JAVASCRIPT
 
 autocmd FileType javascript noremap <F4> :silent exe "s/\\v^(\\s*)(.+)$/\\1\\2\r\\1console.log(" . expand('<cword>') . ", '" . expand('<cword>') . "');"<CR>
-"au FileType javascript let b:javascript_fold = 1
-"au FileType javascript set foldmethod=syntax
 
 
-" }}}
 " Section AutoGroups {{{
-" file type specific settings
 augroup configgroup
     autocmd!
 
