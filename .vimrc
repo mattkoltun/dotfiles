@@ -18,7 +18,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomasr/molokai'
 
+Plugin 'davidhalter/jedi-vim'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'ryanoasis/nerd-fonts'
 " --------- THEMES ----------
 Plugin 'bcicen/vim-vice'
 Plugin 'tstelzer/welpe.vim'
@@ -39,16 +41,16 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+syntax enable
 
-
-let g:airline_theme='onedark'
+" set guifont=Mononoki\ 12
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+set encoding=utf-8
 let g:onedark_termcolors=256
+
 let mapleader = " "
 
 
-syntax enable
-set encoding=utf8
-set guifont=Mononoki\ 12
 
 set list
 set listchars=tab:▸\ ,eol:¬
@@ -212,6 +214,9 @@ let g:SuperTabCrMapping = 0
 
 " vim:foldmethod=marker:foldlevel=0"
 
+if exists("g:loaded_webdevicons")
+    call webdevicons#refresh()
+endif
 
 
 
