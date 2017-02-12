@@ -31,7 +31,6 @@ done;
 	ln -s $PWD/.vim $INSTALLDIR/.vim 2> /dev/null
 	ln -s $PWD/.vimrc $INSTALLDIR/.vimrc 2> /dev/null
 #fi
-echo
 
 #echo -en "\nDo you want to use my git configs? [N/y]"
 #read -n 1 use_git_configs
@@ -43,7 +42,7 @@ echo
 #    echo -ne "\nEmail: "
 #    read git_email
 
-    cp $PWD/.gitconfig $INSTALLDIR/.gitconfig
+cp $PWD/.gitconfig $INSTALLDIR/.gitconfig
 #    sed -i "s/%%GITNAME%%/$git_name/" $INSTALLDIR/.gitconfig
 #    sed -i "s/%%GITEMAIL%%/$git_email/" $INSTALLDIR/.gitconfig
 #fi
@@ -73,7 +72,6 @@ fi
 
 mkdir -p $PWD/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim .vim/bundle/Vundle.vim
-sudo vim +PluginInstall!
 
 mv $INSTALLDIR/.ssh/config $INSTALLDIR/.ssh/config.old 2> /dev/null
 ln -s $PWD/.ssh/config $INSTALLDIR/.ssh/config
@@ -81,3 +79,11 @@ echo -e "\nInitializing submodules..."
 mkdir -p $PWD/
 
 echo "Done. Conflicting existing dotfiles were moved to <file>.old"
+sudo vim +PluginInstall! +qall
+
+
+
+
+
+
+

@@ -16,6 +16,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tomasr/molokai'
 
 Plugin 'ryanoasis/vim-devicons'
 " --------- THEMES ----------
