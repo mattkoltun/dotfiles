@@ -88,7 +88,7 @@ fi
 
 export PATH="$HOME/bin:$PATH"
 
-export PS1="\[\033[38;5;157m\]\h\[$(tput sgr0)\]\[\033[38;5;203m\] > \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;123m\]\u\[$(tput sgr0)\]\[\033[38;5;203m\]:\[$(tput sgr0)\]\[\033[38;5;229m\]\W\[$(tput sgr0)\]\[\033[38;5;219m\]\$(__git_ps1 ' %s')\[$(tput sgr0)\]\[\033[38;5;83m\] \$\[$(tput sgr0)\]\[\033[38;5;157m\] \[$(tput sgr0)\]"
+export PS1="\[\033[38;5;157m\]\h\[$(tput sgr0)\]\[\033[38;5;203m\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;123m\]\u\[$(tput sgr0)\]\[\033[38;5;203m\] \[$(tput sgr0)\]\[\033[38;5;229m\]\W\[$(tput sgr0)\]\[\033[38;5;219m\]\$(__git_ps1 ' %s')\[$(tput sgr0)\]\[\033[38;5;83m\] \$\[$(tput sgr0)\]\[\033[38;5;157m\] \[$(tput sgr0)\]"
 
 
 export GIT_EDITOR=vim
