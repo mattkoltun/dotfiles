@@ -22,15 +22,15 @@ do
 	ln -s $PWD/$i $INSTALLDIR/$i;
 done;
 
-#echo -n "Do you want to use my vim configs? [N/y]"
-#read -n 1 use_vim_configs
+echo -n "Do you want to use my vim configs? [N/y]"
+read -n 1 use_vim_configs
 
-#if [ "$use_vim_configs" == "Y" ] || [ "$use_vim_configs" == "y" ]; then
+if [ "$use_vim_configs" == "Y" ] || [ "$use_vim_configs" == "y" ]; then
     mv $INSTALLDIR/.vim $INSTALLDIR/.vim.old
     mv $INSTALLDIR/.vimrc $INSTALLDIR/.vimrc.old
 	ln -s $PWD/.vim $INSTALLDIR/.vim 2> /dev/null
 	ln -s $PWD/.vimrc $INSTALLDIR/.vimrc 2> /dev/null
-#fi
+fi
 
 #echo -en "\nDo you want to use my git configs? [N/y]"
 #read -n 1 use_git_configs
@@ -42,14 +42,11 @@ done;
 #    echo -ne "\nEmail: "
 #    read git_email
 
-cp $PWD/.gitconfig $INSTALLDIR/.gitconfig
+#cp $PWD/.gitconfig $INSTALLDIR/.gitconfig
 #    sed -i "s/%%GITNAME%%/$git_name/" $INSTALLDIR/.gitconfig
 #    sed -i "s/%%GITEMAIL%%/$git_email/" $INSTALLDIR/.gitconfig
 #fi
 
-if [ ! -d $INSTALLDIR/.node-completion ]; then
-	mkdir $INSTALLDIR/.node-completion
-fi
 
 #echo -en "\nDo you want to use my tmux configs? [N/y]"
 #read -n 1 use_tmux_configs
@@ -80,10 +77,3 @@ mkdir -p $PWD/
 
 echo "Done. Conflicting existing dotfiles were moved to <file>.old"
 sudo vim +PluginInstall! +qall
-
-
-
-
-
-
-
