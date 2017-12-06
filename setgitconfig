@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+echo -en "\nDo you want to use my git configs? [N/y]"
+read -n 1 use_git_configs
+
+if [ "$use_git_configs" == "Y" ] || [ "$use_git_configs" == "y" ]; then
+    echo -e "\nGit config settings"
+    echo -n "Name: "
+    read git_name
+    echo -ne "\nEmail: "
+    read git_email
+
+cp $PWD/.gitconfig $INSTALLDIR/.gitconfig
+    sed -i "s/%%GITNAME%%/$git_name/" $INSTALLDIR/.gitconfig
+    sed -i "s/%%GITEMAIL%%/$git_email/" $INSTALLDIR/.gitconfig
+fi
+
+
+

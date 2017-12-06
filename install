@@ -32,26 +32,26 @@ if [ "$use_vim_configs" == "Y" ] || [ "$use_vim_configs" == "y" ]; then
 	ln -s $PWD/.vimrc $INSTALLDIR/.vimrc 2> /dev/null
 fi
 
-#echo -en "\nDo you want to use my git configs? [N/y]"
-#read -n 1 use_git_configs
+echo -en "\nDo you want to use my git configs? [N/y]"
+read -n 1 use_git_configs
 
-#if [ "$use_git_configs" == "Y" ] || [ "$use_git_configs" == "y" ]; then
-#    echo -e "\nGit config settings"
-#    echo -n "Name: "
-#    read git_name
-#    echo -ne "\nEmail: "
-#    read git_email
+if [ "$use_git_configs" == "Y" ] || [ "$use_git_configs" == "y" ]; then
+    echo -e "\nGit config settings"
+    echo -n "Name: "
+    read git_name
+    echo -ne "\nEmail: "
+    read git_email
 
-#cp $PWD/.gitconfig $INSTALLDIR/.gitconfig
-#    sed -i "s/%%GITNAME%%/$git_name/" $INSTALLDIR/.gitconfig
-#    sed -i "s/%%GITEMAIL%%/$git_email/" $INSTALLDIR/.gitconfig
-#fi
+cp $PWD/.gitconfig $INSTALLDIR/.gitconfig
+    sed -i "s/%%GITNAME%%/$git_name/" $INSTALLDIR/.gitconfig
+    sed -i "s/%%GITEMAIL%%/$git_email/" $INSTALLDIR/.gitconfig
+fi
 
 
-#echo -en "\nDo you want to use my tmux configs? [N/y]"
-#read -n 1 use_tmux_configs
+echo -en "\nDo you want to use my tmux configs? [N/y]"
+read -n 1 use_tmux_configs
 
-#if [ "$use_tmux_configs" == "Y" ] || [ "$use_tmux_configs" == "y" ]; then
+if [ "$use_tmux_configs" == "Y" ] || [ "$use_tmux_configs" == "y" ]; then
     if [ ! -d $HOME/repos ]; then
         mkdir $HOME/repos
     fi
@@ -65,7 +65,9 @@ fi
     ln -s $PWD/.tmux.conf $INSTALLDIR/.tmux.conf
     mkdir -p $HOME/.local/bin/
     pip install --user --editable=$HOME/repos/powerline/ && ln -s $HOME/repos/powerline/scripts/powerline $HOME/.local/bin/
-#fi
+fi
+
+exit 1
 
 mkdir -p $PWD/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim .vim/bundle/Vundle.vim
