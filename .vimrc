@@ -7,7 +7,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'joshdick/onedark.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'scrooloose/nerdtree'
 Plugin 'L9'
@@ -19,9 +18,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomasr/molokai'
 
 Plugin 'davidhalter/jedi-vim'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'ryanoasis/nerd-fonts'
+Plugin 'ryanoasis/vim-devicons'
 " --------- THEMES ----------
+Plugin 'joshdick/onedark.vim'
 Plugin 'bcicen/vim-vice'
 Plugin 'tstelzer/welpe.vim'
 Plugin 'mhinz/vim-janah'
@@ -44,8 +44,8 @@ filetype plugin indent on    " required
 syntax enable
 
 " set guifont=Mononoki\ 12
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 set encoding=utf-8
+set guifont=DroidSansMono\ Nerd\ Font\ 12
 let g:onedark_termcolors=256
 
 let mapleader = " "
@@ -203,13 +203,15 @@ augroup END
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
 let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
 let g:airline#extensions#tabline#show_splits = 0
-
 let g:tsuquyomi_disable_default_mappings = 1
+
 
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
