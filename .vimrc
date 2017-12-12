@@ -87,6 +87,9 @@ set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 set laststatus=2
 set t_Co=256
 
+set splitbelow
+set splitright
+
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 
 let g:ctrlp_map = 'Q'
@@ -101,6 +104,8 @@ inoremap <S-tab> <C-D>
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 nmap <leader>n :noh
+nmap <leader>s :windo set scrollbind
+nmap <leader>S :windo set scrollbind!
 
 
 set pastetoggle=<leader>v
