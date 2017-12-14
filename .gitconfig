@@ -1,6 +1,6 @@
 [user]
-  name = 'Matthew Koltun'
-  email = 'mati@koltunm.com'
+	name = Mateusz Koltun
+	email = mateusz.koltun2@mail.dcu.ie
 [diff]
   external = git_diff_wrapper
 [pager]
@@ -19,3 +19,5 @@
     cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
     trustExitCode = true
 # vim: set et :
+[core]
+	editor = vim
