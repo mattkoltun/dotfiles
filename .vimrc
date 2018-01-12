@@ -15,6 +15,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 "Plugin 'ryanoasis/nerd-fonts'
 Plugin 'ryanoasis/vim-devicons'
 " --------- THEMES ----------
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'joshdick/onedark.vim'
 Plugin 'bcicen/vim-vice'
@@ -23,16 +24,19 @@ Plugin 'mhinz/vim-janah'
 Plugin 'dikiaap/minimalist'
 Plugin 'zacanger/angr.vim'
 
+
 call vundle#end()
+
 
 filetype plugin indent on
 syntax enable
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 set encoding=utf-8
+colorscheme atom-dark-256
+
 
 let mapleader = " "
 
-set list
-set listchars=tab:▸\ ,eol:¬
 
 set autoindent
 set ts=4
@@ -59,6 +63,7 @@ set tabstop=4
 set smarttab
 set foldcolumn=1
 set showmatch
+set nolist
 
 
 set splitbelow
@@ -75,9 +80,11 @@ inoremap <S-tab> <C-D>
 
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
-nmap <leader>n :noh
+nmap <leader>n :noh<cr>
 nmap <leader>s :windo set scrollbind
 nmap <leader>S :windo set scrollbind!
+nmap <leader>d :bd<cr>
+nmap <leader>e :Explore<cr>
 
 
 set pastetoggle=<leader>v
@@ -137,6 +144,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let NERDTreeQuitOnOpen=1
+let NERDTreeShowHidden=1
 nmap t :NERDTreeToggle<CR>
 nmap <silent> T :NERDTreeFind<cr>
 
@@ -155,8 +163,26 @@ let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs a
 let g:airline#extensions#tabline#show_splits = 0
 let g:tsuquyomi_disable_default_mappings = 1
 
+let g:airline_theme='bubblegum'
 
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
 
 let g:SuperTabCrMapping = 0
+
+
+" ------- Powerline -------
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
+
+
+
+
+
+" ------ DEVICONS -------
+let g:webdevicons_enable=1
+let g:webdevicons_enable_nerdtree=1
+let g:webdevicons_enable_unite=1
+let g:webdevicons_enable_airline_statusline=1
+

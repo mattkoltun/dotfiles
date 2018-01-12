@@ -23,3 +23,6 @@ fi
 
 
 PATH=$PATH:~/.local/bin
+
+
+source ~/.env_vars
