@@ -11,8 +11,11 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
 
-"Plugin 'ryanoasis/nerd-fonts'
+Plugin 'ryanoasis/nerd-fonts'
 Plugin 'ryanoasis/vim-devicons'
 " --------- THEMES ----------
 Plugin 'vim-airline/vim-airline-themes'
@@ -65,7 +68,6 @@ set foldcolumn=1
 set showmatch
 set nolist
 
-
 set splitbelow
 set splitright
 
@@ -75,7 +77,6 @@ let g:ctrlp_cmd = 'CtrlP'
 
 vmap <Tab> >gv
 vmap <S-Tab> <gv
-inoremap <S-tab> <C-D>
 
 
 nmap <leader>w :w!<cr>
@@ -83,17 +84,19 @@ nmap <leader>q :q<cr>
 nmap <leader>n :noh<cr>
 nmap <leader>s :windo set scrollbind
 nmap <leader>S :windo set scrollbind!
-nmap <leader>d :bd<cr>
+nmap <leader>c :bd<cr>
 nmap <leader>e :Explore<cr>
+nnoremap <leader>a ggVG
 
+map <C-n> :bn<cr>
+map <C-p> :bp<cr>
 
 set pastetoggle=<leader>v
-nnoremap <leader>a ggVG
 
 
 no <down> ddpzz
-no <left> w:bp<cr>
-no <right> w:bn<cr>
+no <left> :bp<cr>
+no <right> :bn<cr>
 no <up> ddkPzz
 ino <down> <Nop>
 ino <left> <Nop>
@@ -104,6 +107,11 @@ vno <left> <Nop>
 vno <right> <Nop>
 vno <up> <Nop>
 
+
+imap <C-j> <ESC>j
+imap <C-k> <ESC>k
+inoremap <C-l> <ESC>A
+imap <C-m> <ESC>o
 imap <C-space> <ESC>
 vmap <C-space> <ESC>
 
@@ -111,7 +119,6 @@ nmap di, f,dT,
 nmap ci, f,cT,
 nmap da, f,ld2F,i,<ESC>l
 nmap ca, f,ld2F,i,<ESC>a
-
 
 nmap G Gzz
 nmap n nzz
@@ -127,6 +134,7 @@ nmap gO O<ESC>j
 nmap go o<ESC>k
 nmap I ^i
 nmap A $a
+
 
 
 vmap } }zz
