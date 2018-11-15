@@ -40,39 +40,40 @@ colorscheme atom-dark-256
 
 let mapleader = " "
 
+set history=1000
 
 set autoindent
-set ts=4
-set ignorecase
-set smartcase
-set hlsearch
-set modelines=0
-set wildmenu
-set wildmode=longest:full
-set number
-set dict=/usr/share/dict/words
-set cursorline
-set showcmd
-set ruler
-set incsearch
+set backspace=2
+set cindent
 set cmdheight=2
 set completeopt=menu
-set mousemodel=popup
-set mouse=a
-set backspace=2
+set cursorline
+set dict=/usr/share/dict/words
 set expandtab
-set shiftwidth=4
-set tabstop=4
-set smarttab
 set foldcolumn=1
-set showmatch
+set hlsearch
+set ignorecase
+set incsearch
+set modelines=0
+set mouse=a
+set mousemodel=popup
 set nolist
+set number
+set ruler
+set shiftwidth=4
+set showcmd
+set showmatch
+set smartcase
+set smarttab
+set softtabstop=4
+set wildmenu
+set wildmode=longest:full
+set ts=4
+set tabstop=4
 
 set splitbelow
 set splitright
 
-let g:ctrlp_map = 'Q'
-let g:ctrlp_cmd = 'CtrlP'
 
 
 vmap <Tab> >gv
@@ -94,10 +95,10 @@ map <C-p> :bp<cr>
 set pastetoggle=<leader>v
 
 
-no <down> ddpzz
+no <down> ddp
 no <left> :bp<cr>
 no <right> :bn<cr>
-no <up> ddkPzz
+no <up> ddkP
 ino <down> <Nop>
 ino <left> <Nop>
 ino <right> <Nop>
@@ -111,7 +112,6 @@ vno <up> <Nop>
 imap <C-j> <ESC>j
 imap <C-k> <ESC>k
 inoremap <C-l> <ESC>A
-imap <C-m> <ESC>o
 imap <C-space> <ESC>
 vmap <C-space> <ESC>
 
@@ -125,6 +125,8 @@ nmap n nzz
 nmap N Nzz
 nmap } }zz
 nmap { {zz
+nmap ] ]zz
+nmap [ [zz
 nmap j jzz
 nmap k kzz
 nmap h hzz
@@ -143,6 +145,11 @@ vmap j jzz
 vmap k kzz
 vmap h hzz
 vmap l lzz
+
+" ------ CtrlP -------
+let g:ctrlp_map = 'Q'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 
 
 " ------ NERDTree ------
