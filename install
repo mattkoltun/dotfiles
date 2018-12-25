@@ -65,7 +65,7 @@ if [ "$use_tmux_configs" == "Y" ] || [ "$use_tmux_configs" == "y" ]; then
 fi
 
 
-echo -en "\Do you want to set the '~\.ssh\config' file?"
+echo -en "\nDo you want to set the '~\\.ssh\\config' file?"
 read -n 1 use_ssh_config
 
 if [ "$use_ssh_config" == "Y" || "$use_ssh_config" == "y"]; then

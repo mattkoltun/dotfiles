@@ -7,8 +7,8 @@ HISTCONTROL=ignoreboth
 
 shopt -s histappend
 
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=7000
+HISTFILESIZE=6000
 
 shopt -s checkwinsize
 
@@ -56,9 +56,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias ll='ls -al'
+alias ll='ls -alv'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -CFv'
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
@@ -99,3 +99,19 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.5
 #if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
 #    source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 #fi
+# added by Anaconda3 5.3.1 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/mati/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/home/mati/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/mati/anaconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/home/mati/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<

@@ -10,10 +10,12 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
+"Plugin 'tpope/vim-fugitive'
 
 Plugin 'ryanoasis/nerd-fonts'
 Plugin 'ryanoasis/vim-devicons'
@@ -26,6 +28,7 @@ Plugin 'tstelzer/welpe.vim'
 Plugin 'mhinz/vim-janah'
 Plugin 'dikiaap/minimalist'
 Plugin 'zacanger/angr.vim'
+Plugin 'bellma101/vim-snazzy'
 
 
 call vundle#end()
@@ -33,10 +36,10 @@ call vundle#end()
 
 filetype plugin indent on
 syntax enable
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+set guifont=Fira\ Mono\ Bold\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 set encoding=utf-8
-colorscheme atom-dark-256
-
+colorscheme onedark
 
 let mapleader = " "
 
@@ -146,13 +149,21 @@ vmap k kzz
 vmap h hzz
 vmap l lzz
 
+" ------ DEVICONS -------
+let g:webdevicons_enable=1
+let g:webdevicons_enable_nerdtree=1
+let g:webdevicons_enable_unite=1
+let g:webdevicons_enable_airline_statusline=1
+
+
 " ------ CtrlP -------
-let g:ctrlp_map = 'Q'
+let g:ctrlp_map = '<c-f>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
 
 " ------ NERDTree ------
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -163,8 +174,30 @@ let NERDTreeShowHidden=1
 nmap t :NERDTreeToggle<CR>
 nmap <silent> T :NERDTreeFind<cr>
 
+let NERDTreeIgnore = ['\.pyc$', '\.class$']
+
+" ------ JEDI VIM -------
+
+let g:jedi#completion_enabled = 0
+
+" ------ SYNTATSTIC
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" for java
+let g:syntastic_java_checkers = []
 
 
+" ------ YouCompleteMe -------
+
+" let g:ycm_pyt
 
 " ------ AIRLINE -------
 
@@ -178,7 +211,8 @@ let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs a
 let g:airline#extensions#tabline#show_splits = 0
 let g:tsuquyomi_disable_default_mappings = 1
 
-let g:airline_theme='bubblegum'
+"let g:airline_theme='bubblegum'
+let g:airline_theme='dracula'
 
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
@@ -192,12 +226,4 @@ set laststatus=2
 set t_Co=256
 
 
-
-
-
-" ------ DEVICONS -------
-let g:webdevicons_enable=1
-let g:webdevicons_enable_nerdtree=1
-let g:webdevicons_enable_unite=1
-let g:webdevicons_enable_airline_statusline=1
-
+colorscheme dracula
