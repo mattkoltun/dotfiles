@@ -24,5 +24,8 @@ fi
 
 PATH=$PATH:~/.local/bin
 
+alias ud=sudo apt-get update
+alias ug=sudo apt get upgrade -y 
+
 
 source ~/.env_vars

@@ -43,7 +43,7 @@ colorscheme onedark
 
 let mapleader = " "
 
-set history=1000
+set history=10000
 
 set autoindent
 set backspace=2
@@ -73,6 +73,7 @@ set wildmenu
 set wildmode=longest:full
 set ts=4
 set tabstop=4
+set relativenumber
 
 set splitbelow
 set splitright
