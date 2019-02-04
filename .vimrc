@@ -113,6 +113,7 @@ vno <right> <Nop>
 vno <up> <Nop>
 
 
+imap <C-u> <Nop>
 imap <C-j> <ESC>j
 imap <C-k> <ESC>k
 inoremap <C-l> <ESC>A
@@ -156,6 +157,8 @@ let g:webdevicons_enable_nerdtree=1
 let g:webdevicons_enable_unite=1
 let g:webdevicons_enable_airline_statusline=1
 
+" ----- ECLIM ----- "
+let g:EclimBrowser = 'google-chrome'
 
 " ------ CtrlP -------
 let g:ctrlp_map = '<c-f>'
