@@ -1,6 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export GIT_EDITOR=vim
+export VISAUL=vim
+export EDITOR="$VISUAL"
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.5
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mati/.oh-my-zsh"
 
@@ -10,7 +15,6 @@ export ZSH="/home/mati/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="blinks"
 
-source ~/.profile
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,3 +107,11 @@ source $ZSH/oh-my-zsh.sh
 
 alias up="sudo apt update"
 alias ug="sudo apt upgrade -y"
+alias ll='ls -alv'
+alias la='ls -A'
+alias l='ls -CFv'
+
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+
+/usr/bin/setxkbmap -option "ctrl:swapcaps"

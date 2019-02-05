@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/home/mati/eclipse/java-2018-12/eclipse/eclimd &
+

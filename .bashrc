@@ -56,17 +56,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias ll='ls -alv'
-alias la='ls -A'
-alias l='ls -CFv'
-
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
@@ -77,16 +66,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-
-/usr/bin/setxkbmap -option "ctrl:swapcaps"
-
-export PATH="$HOME/bin:$PATH"
 
 export PS1="\[\033[38;5;157m\]\h\[$(tput sgr0)\]\[\033[38;5;203m\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;123m\]\u\[$(tput sgr0)\]\[\033[38;5;203m\] \[$(tput sgr0)\]\[\033[38;5;229m\]\W\[$(tput sgr0)\]\[\033[38;5;219m\]\$(__git_ps1 ' %s')\[$(tput sgr0)\]\[\033[38;5;83m\] \$\[$(tput sgr0)\]\[\033[38;5;157m\] \[$(tput sgr0)\]"
 
@@ -115,3 +98,5 @@ else
 fi
 unset __conda_setup
 # <<< conda init <<<
+
+/usr/bin/setxkbmap -option "ctrl:swapcaps"
