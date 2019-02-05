@@ -14,7 +14,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 "Plugin 'tpope/vim-fugitive'
 
 Plugin 'ryanoasis/nerd-fonts'
@@ -113,7 +113,7 @@ vno <right> <Nop>
 vno <up> <Nop>
 
 
-imap <C-u> <Nop>
+"imap <C-x> <Nop>
 imap <C-j> <ESC>j
 imap <C-k> <ESC>k
 inoremap <C-l> <ESC>A
@@ -159,6 +159,9 @@ let g:webdevicons_enable_airline_statusline=1
 
 " ----- ECLIM ----- "
 let g:EclimBrowser = 'google-chrome'
+let g:EclimCompletionMethod = 'omnifunc'
+let g:SuperTabDefaultCompletionType = 'context'
+
 
 " ------ CtrlP -------
 let g:ctrlp_map = '<c-f>'
