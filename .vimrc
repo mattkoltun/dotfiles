@@ -79,7 +79,6 @@ set splitbelow
 set splitright
 
 
-
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
@@ -143,7 +142,6 @@ nmap I ^i
 nmap A $a
 
 
-
 vmap } }zz
 vmap { {zz
 vmap j jzz
@@ -160,7 +158,7 @@ let g:webdevicons_enable_airline_statusline=1
 " ----- ECLIM ----- "
 let g:EclimBrowser = 'google-chrome'
 let g:EclimCompletionMethod = 'omnifunc'
-let g:SuperTabDefaultCompletionType = 'context'
+"let g:SuperTabDefaultCompletionType = 'context'
 
 
 " ------ CtrlP -------
