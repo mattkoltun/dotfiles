@@ -1,2 +1,7 @@
 .vim/bundle/*
 .vim/*
+
+*/*.swp
+*/*.swo
+*.swp
+*.swo
