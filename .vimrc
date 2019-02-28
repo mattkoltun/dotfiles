@@ -14,6 +14,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'tmhedberg/matchit'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'tpope/vim-fugitive'
 
@@ -62,6 +64,7 @@ set mouse=a
 set mousemodel=popup
 set nolist
 set number
+set relativenumber
 set ruler
 set shiftwidth=4
 set showcmd
@@ -69,11 +72,15 @@ set showmatch
 set smartcase
 set smarttab
 set softtabstop=4
+set tabstop=4
+set ts=4
 set wildmenu
 set wildmode=longest:full
-set ts=4
-set tabstop=4
-set relativenumber
+
+set undofile
+set undodir=$HOME/tmp/vimundo
+set undolevels=1000
+set undoreload=10000
 
 set splitbelow
 set splitright
@@ -157,14 +164,17 @@ let g:webdevicons_enable_airline_statusline=1
 
 " ----- ECLIM ----- "
 let g:EclimBrowser = 'google-chrome'
-let g:EclimCompletionMethod = 'omnifunc'
-"let g:SuperTabDefaultCompletionType = 'context'
+"let g:EclimCompletionMethod = 'omnifunc'
+let g:SuperTabDefaultCompletionType = 'context'
 
 
 " ------ CtrlP -------
 let g:ctrlp_map = '<c-f>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_show_hidden = 1
+"set wildignore+=*.swp,*.zip,*.swo,*.pyc,*.class
+nnoremap <leader>f :CtrlP<CR>
 
 
 " ------ NERDTree ------

@@ -1,3 +1,4 @@
+echo "Loading .bashrc"
 case $- in
     *i*) ;;
       *) return;;
@@ -66,8 +67,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH=$HOME/bin:$PATH
+    echo $PATH
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH=$HOME/.local/bin:$PATH
+fi
+
+# load apache maven
+if [ -d "$HOME/Apps/apache-maven/bin" ] ; then
+    PATH=$HOME/Apps/apache-maven/bin:$PATH
 fi
 
 
@@ -100,3 +113,4 @@ unset __conda_setup
 # <<< conda init <<<
 
 /usr/bin/setxkbmap -option "ctrl:swapcaps"
+echo "LOADED .bashrc"

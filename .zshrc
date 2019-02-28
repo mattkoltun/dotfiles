@@ -1,5 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+#
+
+echo "Loading .zshrc"
+
+
+echo ".zshrc sourcing envs"
+source /etc/environment
 
 export GIT_EDITOR=vim
 export VISAUL=vim
@@ -107,11 +114,31 @@ source $ZSH/oh-my-zsh.sh
 
 alias up="sudo apt update"
 alias ug="sudo apt upgrade -y"
-alias ll='ls -alv'
-alias la='ls -A'
-alias l='ls -CFv'
+alias l='ls -lFvh'
+alias ll='ls -lAvh'
+alias la='ls -lavh'
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH=$HOME/bin:$PATH
+    echo $PATH
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH=$HOME/.local/bin:$PATH
+fi
+
+# load apache maven
+if [ -d "$HOME/Apps/apache-maven/bin" ] ; then
+    PATH=$HOME/Apps/apache-maven/bin:$PATH
+fi
+
 /usr/bin/setxkbmap -option "ctrl:swapcaps"
+xset r rate 240 40                          # delay and hits per second
+
+echo "LOADED .zshrc"
+
