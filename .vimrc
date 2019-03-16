@@ -120,6 +120,7 @@ vno <up> <Nop>
 
 
 "imap <C-x> <Nop>
+imap jj <ESC>
 imap <C-j> <ESC>j
 imap <C-k> <ESC>k
 inoremap <C-l> <ESC>A

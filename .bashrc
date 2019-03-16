@@ -1,4 +1,4 @@
-echo "Loading .bashrc"
+#echo "Loading .bashrc"
 case $- in
     *i*) ;;
       *) return;;
@@ -113,4 +113,4 @@ unset __conda_setup
 # <<< conda init <<<
 
 /usr/bin/setxkbmap -option "ctrl:swapcaps"
-echo "LOADED .bashrc"
+#echo "LOADED .bashrc"

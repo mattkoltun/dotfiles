@@ -2,16 +2,15 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #
 
-echo "Loading .zshrc"
+#echo "Loading .zshrc"
 
-
-echo ".zshrc sourcing envs"
+#echo ".zshrc sourcing envs"
 source /etc/environment
 
 export GIT_EDITOR=vim
 export VISAUL=vim
 export EDITOR="$VISUAL"
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.5
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.6
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mati/.oh-my-zsh"
@@ -140,5 +139,5 @@ fi
 /usr/bin/setxkbmap -option "ctrl:swapcaps"
 xset r rate 240 40                          # delay and hits per second
 
-echo "LOADED .zshrc"
+#echo "LOADED .zshrc"
 

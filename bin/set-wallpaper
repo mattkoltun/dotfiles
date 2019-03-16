@@ -1,0 +1,33 @@
+#!/bin/bash -e
+
+export DISPLAY=:0
+export GSETTINGS_BACKEND=dconf
+
+user=$(whoami)
+log=/tmp/cronwallpaper.log
+
+fl=$(find /proc -maxdepth 2 -user $user -name environ -print -quit)
+while [ -z $(grep -z DBUS_SESSION_BUS_ADDRESS "$fl" | cut -d= -f2- | tr -d '\000' ) ]
+do
+  fl=$(find /proc -maxdepth 2 -user $user -name environ -newer "$fl" -print -quit)
+done
+
+# instead of 'gnome-session' it can be also used 'noutilus' or 'compiz' or 
+# the name of a process of a graphical program about that you are sure 
+# that is running after you log in the X session
+#PID=$(pgrep gnome-session)  
+#export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$PID/environ|cut -d= -f2-)
+
+export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS "$fl" | cut -d= -f2-)
+
+echo -e "$(date): $DBUS_SESSION_BUS_ADDRESS" >> $log 
+
+wpp=$(find /home/mati/Pictures/wallpapers | shuf -n1)
+
+#IMG=$(find -L $PICS_PATH -name "*.jpg" -o -name "*.png" | shuf -n1)
+#gsettings set org.gnome.desktop.background picture-uri $wpp >> $log
+gsettings set org.gnome.desktop.background picture-uri "file://${wpp}"
+dconf write "/org/gnome/desktop/background/picture-uri" "'file://${wpp}'"
+
+echo -e "$(date): ${wpp}" >> $log
+
