@@ -1,5 +1,3 @@
-set nocompatible
-filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -45,7 +43,6 @@ colorscheme onedark
 
 let mapleader = " "
 
-set history=10000
 
 set autoindent
 set backspace=2
@@ -56,6 +53,8 @@ set cursorline
 set dict=/usr/share/dict/words
 set expandtab
 set foldcolumn=1
+set hidden
+set history=10000
 set hlsearch
 set ignorecase
 set incsearch
@@ -64,6 +63,7 @@ set mouse=a
 set mousemodel=popup
 set nolist
 set number
+set pastetoggle=<leader>v
 set relativenumber
 set ruler
 set shiftwidth=4
@@ -72,19 +72,16 @@ set showmatch
 set smartcase
 set smarttab
 set softtabstop=4
-set tabstop=4
-set ts=4
-set wildmenu
-set wildmode=longest:full
-
-set undofile
-set undodir=$HOME/tmp/vimundo
-set undolevels=1000
-set undoreload=10000
-
 set splitbelow
 set splitright
-
+set tabstop=4
+set ts=4
+set undodir=$HOME/tmp/vimundo
+set undofile
+set undolevels=1000
+set undoreload=10000
+set wildmenu
+set wildmode=longest:full
 
 vmap <Tab> >gv
 vmap <S-Tab> <gv
@@ -99,10 +96,13 @@ nmap <leader>c :bd<cr>
 nmap <leader>e :Explore<cr>
 nnoremap <leader>a ggVG
 
+" ECLIM keypams
+nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
+nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
+nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
+
 map <C-n> :bn<cr>
 map <C-p> :bp<cr>
-
-set pastetoggle=<leader>v
 
 
 no <down> ddp
