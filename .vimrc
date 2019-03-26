@@ -16,6 +16,7 @@ Plugin 'ervandew/supertab'
 Plugin 'tmhedberg/matchit'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'tpope/vim-fugitive'
+Plugin 'oblitum/rainbow'
 
 Plugin 'ryanoasis/nerd-fonts'
 Plugin 'ryanoasis/vim-devicons'
@@ -156,6 +157,11 @@ vmap j jzz
 vmap k kzz
 vmap h hzz
 vmap l lzz
+
+" ------ RAINBOW BRACES  -------
+let g:rainbow_active = 1
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+
 
 " ------ DEVICONS -------
 let g:webdevicons_enable=1
