@@ -67,23 +67,23 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH=$HOME/bin:$PATH
-fi
+## set PATH so it includes user's private bin if it exists
+#if [ -d "$HOME/bin" ] ; then
+#    PATH=$HOME/bin:$PATH
+#fi
+#
+## set PATH so it includes user's private bin if it exists
+#if [ -d "$HOME/.local/bin" ] ; then
+#    PATH=$HOME/.local/bin:$PATH
+#fi
+#
+## load apache maven
+#if [ -d "$HOME/Apps/apache-maven/bin" ] ; then
+#    PATH=$HOME/Apps/apache-maven/bin:$PATH
+#fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH=$HOME/.local/bin:$PATH
-fi
 
-# load apache maven
-if [ -d "$HOME/Apps/apache-maven/bin" ] ; then
-    PATH=$HOME/Apps/apache-maven/bin:$PATH
-fi
-
-
-export PS1="\[\033[38;5;157m\]\h\[$(tput sgr0)\]\[\033[38;5;203m\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;123m\]\u\[$(tput sgr0)\]\[\033[38;5;203m\] \[$(tput sgr0)\]\[\033[38;5;229m\]\W\[$(tput sgr0)\]\[\033[38;5;219m\]\$(__git_ps1 ' %s')\[$(tput sgr0)\]\[\033[38;5;83m\] \$\[$(tput sgr0)\]\[\033[38;5;157m\] \[$(tput sgr0)\]"
+export PS1="\[\033[38;5;157m\]\h\[$(tput sgr0)\]\[\033[38;5;203m\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;123m\]\u\[$(tput sgr0)\]\[\033[38;5;203m\] \[$(tput sgr0)\]\[\033[38;5;229m\]\W\[$(tput sgr0)\]\[\033[38;5;219m\]\[$(tput sgr0)\]\[\033[38;5;83m\] \$\[$(tput sgr0)\]\[\033[38;5;157m\] \[$(tput sgr0)\]"
 
 
 export GIT_EDITOR=vim
@@ -97,18 +97,18 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.5
 # added by Anaconda3 5.3.1 installer
 # >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/mati/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
-else
-    if [ -f "/home/mati/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/mati/anaconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate base
-    else
-        \export PATH="/home/mati/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+#__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/mati/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    \eval "$__conda_setup"
+#else
+#    if [ -f "/home/mati/anaconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/mati/anaconda3/etc/profile.d/conda.sh"
+#        CONDA_CHANGEPS1=false conda activate base
+#    else
+#        \export PATH="/home/mati/anaconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
 # <<< conda init <<<
 
 /usr/bin/setxkbmap -option "ctrl:swapcaps"
