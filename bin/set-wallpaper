@@ -29,5 +29,7 @@ wpp=$(find /home/mati/Pictures/wallpapers | shuf -n1)
 gsettings set org.gnome.desktop.background picture-uri "file://${wpp}"
 dconf write "/org/gnome/desktop/background/picture-uri" "'file://${wpp}'"
 
-echo -e "$(date): ${wpp}" >> $log
+wpp=$(find /home/mati/Pictures/wallpapers | shuf -n1)
+ln -s $wpp ~/Pictures/wallpapers/default
 
+echo -e "$(date): ${wpp}" >> $log

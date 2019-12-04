@@ -111,8 +111,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias up="sudo apt update"
-alias ug="sudo apt upgrade -y"
+alias please=sudo
+
+alias up="please apt update"
+alias ug="please apt upgrade -y"
 alias l='ls -lFvh'
 alias ll='ls -lAvh'
 alias la='ls -lavh'
@@ -131,9 +133,9 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # load apache maven
-if [ -d "$HOME/Apps/apache-maven/bin" ] ; then
-    PATH=$HOME/Apps/apache-maven/bin:$PATH
-fi
+# if [ -d "$HOME/Apps/apache-maven/bin" ] ; then
+#     PATH=$HOME/Apps/apache-maven/bin:$PATH
+# fi
 
 /usr/bin/setxkbmap -option "ctrl:swapcaps"
 xset r rate 240 40                          # delay and hits per second
