@@ -2,8 +2,8 @@
 
 height=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' | cut -dx -f2) && \
     width=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' | cut -dx -f1) && \
-    pH=`expr $height / 10` && \
-    pW=`expr $width / 10` && \
+    pH=`expr $height / 20` && \
+    pW=`expr $width / 30` && \
     echo "pW: $pW" && echo "pH: $pH" && \
     nH=`expr $height - $(expr $pH + $pH)` && \
     nW=`expr $width - $(expr $pW + $pW)` && \
