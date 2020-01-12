@@ -3,6 +3,23 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'oblitum/rainbow'
+Plugin 'ryanoasis/nerd-fonts'
+Plugin 'ryanoasis/vim-devicons'
+
+" --------- THEMES ----------
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'joshdick/onedark.vim'
+Plugin 'bcicen/vim-vice'
+Plugin 'tstelzer/welpe.vim'
+Plugin 'mhinz/vim-janah'
+Plugin 'dikiaap/minimalist'
+Plugin 'zacanger/angr.vim'
+Plugin 'bellma101/vim-snazzy'
+Plugin 'dracula/vim'
+
+" -------- OTHER ---------
 Plugin 'L9'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'sheerun/vim-polyglot'
@@ -17,20 +34,6 @@ Plugin 'tmhedberg/matchit'
 Plugin 'mhinz/vim-startify'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'tpope/vim-fugitive'
-Plugin 'oblitum/rainbow'
-
-Plugin 'ryanoasis/nerd-fonts'
-Plugin 'ryanoasis/vim-devicons'
-" --------- THEMES ----------
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'joshdick/onedark.vim'
-Plugin 'bcicen/vim-vice'
-Plugin 'tstelzer/welpe.vim'
-Plugin 'mhinz/vim-janah'
-Plugin 'dikiaap/minimalist'
-Plugin 'zacanger/angr.vim'
-Plugin 'bellma101/vim-snazzy'
 
 
 call vundle#end()
