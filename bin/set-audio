@@ -1,0 +1,30 @@
+#!/usr/bin/sh 
+
+
+check_profile() {
+ profile=$(pacmd list-cards | grep 'active profile' | cut -d' ' -f3 | sed -E -e 's/<|>//g')
+ echo "Current Profile: $profile"
+}
+
+card_name="alsa_card.pci-0000_00_1f.3"
+
+profile_off="off"
+profile_on="output:analog-stereo+input:analog-stereo"
+
+check_profile
+
+
+
+
+if [ "$profile" = "$profile_on" ]; then
+ desire_profile=$profile_off 
+else 
+ desire_profile=$profile_on
+fi
+echo "Desire profile: $desire_profile"
+
+
+pactl set-card-profile $card_name $desire_profile
+
+check_profile
+
