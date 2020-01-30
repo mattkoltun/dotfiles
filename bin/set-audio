@@ -2,7 +2,7 @@
 
 
 check_profile() {
- profile=$(pacmd list-cards | grep 'active profile' | cut -d' ' -f3 | sed -E -e 's/<|>//g')
+ profile=$(pacmd list-cards | grep 'active profile' | head -n 1 | cut -d' ' -f3 | sed -E -e 's/<|>//g')
  echo "Current Profile: $profile"
 }
 
