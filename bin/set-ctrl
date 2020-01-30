@@ -1,5 +1,6 @@
-#!/bin/sh
+#!/usr/bin/sh 
 
 setxkbmap -option ctrl:swapcaps
 
+notify-send "CapsLock and CTRL are swapped." -i /usr/share/icons/gnome/48x48/devices/display.png
 

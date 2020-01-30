@@ -13,9 +13,6 @@ profile_on="output:analog-stereo+input:analog-stereo"
 
 check_profile
 
-
-
-
 if [ "$profile" = "$profile_on" ]; then
  desire_profile=$profile_off 
 else 
@@ -23,8 +20,7 @@ else
 fi
 echo "Desire profile: $desire_profile"
 
-
 pactl set-card-profile $card_name $desire_profile
 
-check_profile
+notify-send "$(check_profile)" -i /usr/share/icons/gnome/48x48/devices/display.png
 
