@@ -1,9 +1,67 @@
 {
+  //"codeLens.enable": true,
+  "diagnostic.errorSign": "✖",
+  "diagnostic.hintSign": "⚑",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "•",
+  "diagnostic.virtualText": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.refreshAfterSave": true,
+
+  "suggest.detailField": "preview",
+  "suggest.detailMaxLength": 100,
+  "suggest.enablePreview": true,
+  "suggest.maxPreviewWidth": 35,
+  "suggest.removeDuplicateItems": true,
+  "suggest.autoTrigger": "always",
+  "suggest.timeout": 500,
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx"],
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
-  "diagnostic.errorSign": "•",
-  "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•"
+
+  "coc.source.file.ignoreHidden": false,
+  "coc.preferences.formatOnType": false,
+  "coc.preferences.formatOnInsertLeave": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+    "html",
+    "json",
+    "css",
+    "Markdown"
+  ],
+
+  "prettier.printWidth": 100,
+  "prettier.singleQuote": false,
+  "prettier.statusItemText": "ⓟ ",
+  "prettier.eslintIntegration": false,
+  "prettier.tslintIntegration": false,
+  "prettier.stylelintIntegration": false,
+
+  "tsserver.enable": true,
+
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": false,
+  "eslint.autoFix": false,
+  "eslint.run": "onType",
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "typescript.tsx"
+  ],
+  "languageserver": {
+    "efm": {
+      "command": "efm-langserver",
+      "args": [],
+      // custom config path
+      // "args": ["-c", "/path/to/your/config.yaml"],
+      //"filetypes": ["vim", "eruby", "markdown", "yaml"]
+      "filetypes": ["vim"]
+    }
+  }
 }

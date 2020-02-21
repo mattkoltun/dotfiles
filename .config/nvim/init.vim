@@ -21,25 +21,36 @@ Plug 'victorze/foo'
 Plug 'wadackel/vim-dogrun'
 Plug 'sainnhe/edge'
 Plug 'arzg/vim-colors-xcode'
+Plug 'morhetz/gruvbox'
 
 
 " --------- FUNCTIONAL ----------
-Plug 'oblitum/rainbow'                      " Rainbow braces
+"Plug 'oblitum/rainbow'                      " Rainbow braces
 "Plug 'junegunn/rainbow_parentheses.vim'
-
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'jiangmiao/auto-pairs'
 Plug 'majutsushi/tagbar'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'mhinz/vim-startify'
+"Plug 'scrooloose/nerdcommenter'
 
 
 " --------- EDITOR ----------
 Plug 'tmhedberg/matchit'
-Plug 'davidhalter/jedi-vim'                 " Python autocomplete
-Plug 'tpope/vim-surround'                   " surrounds words, sentences with [('')]
+Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-denite'
+Plug 'neoclide/coc-neco'
 Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
+Plug 'Shougo/neco-vim'
+Plug 'Yggdroot/indentLine'
+Plug 'ekalinin/dockerfile.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+
 
 
 
@@ -128,6 +139,9 @@ augroup reload_vimrc " {
 augroup END " }
 
 
+" ---------- SET DOCKERFILE FILE TYPE ----------
+autocmd BufRead *Dockerfile* setfiletype Dockerfile
+
 " ------------------------------
 " --------- KEYBINDS  ----------
 " ------------------------------
@@ -139,30 +153,22 @@ nmap <leader>n :noh<cr>
 nmap <leader>s :windo set scrollbind
 nmap <leader>S :windo set scrollbind!
 nmap <leader>c :bd<cr>
-nmap <leader>e :Explore<cr>
-nnoremap <leader>a ggVG
+"nmap <leader>e :Explore<cr>
+"nnoremap <leader>a ggVG
 
-map <C-n> :bn<cr>
-map <C-p> :bp<cr>
+cmap w!! w !sudo tee %
+
+nmap <silent> <C-n> :bn<cr>
+nmap <silent> <C-p> :bp<cr>
 no <right> :bn<cr>
 no <left> :bp<cr>
 
 no <down> ddp
 no <up> ddkP
 
-ino <down> <Nop>
-ino <left> <Nop>
-ino <right> <Nop>
-ino <up> <Nop>
-vno <down> <Nop>
-vno <left> <Nop>
-vno <right> <Nop>
-vno <up> <Nop>
-
-
 imap jj <ESC>
-imap <C-j> <ESC>j
-imap <C-k> <ESC>k
+"imap <C-j> <ESC>j
+"imap <C-k> <ESC>k
 inoremap <C-l> <ESC>A
 imap <C-space> <ESC>
 vmap <C-space> <ESC>
@@ -191,6 +197,18 @@ nmap k kzz
 nmap h hzz
 nmap l lzz
 
+"autoclose 2 lines below and position cursor in the middle 
+inoremap (<CR> (<CR>)<ESC>O
+inoremap [<CR> [<CR>]<ESC>O
+inoremap {<CR> {<CR>}<ESC>O
+"autoclose 2 lines below adding ; and position cursor in the middle 
+inoremap (;<CR> (<CR>);<ESC>O
+inoremap [;<CR> [<CR>];<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+"autoclose 2 lines below adding , and position cursor in the middle 
+inoremap (,<CR> (<CR>),<ESC>O
+inoremap [,<CR> [<CR>],<ESC>O
+inoremap {,<CR> {<CR>},<ESC>O
 
 vmap <Tab> >gv
 vmap <S-Tab> <gv
@@ -201,11 +219,13 @@ vmap k kzz
 vmap h hzz
 vmap l lzz
 
+"vmap <C-/> <plug>NERDCommenterToggle
+"nmap <C-/> <plug>NERDCommenterToggle
 
 " ECLIM keypams
-nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
-nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
-nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
+"nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
+"nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
+"nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
 
 
 " ---------------------------------
@@ -216,9 +236,9 @@ nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
 hi! NERDTreeCWD guifg=#99c794
 
 " Make background color transparent for git changes
-hi! SignifySignAdd guibg=NONE
-hi! SignifySignDelete guibg=NONE
-hi! SignifySignChange guibg=NONE
+"hi! SignifySignAdd guibg=NONE
+"hi! SignifySignDelete guibg=NONE
+"hi! SignifySignChange guibg=NONE
 
 " Highlight git change signs
 hi! SignifySignAdd guifg=#99c794
@@ -226,35 +246,45 @@ hi! SignifySignDelete guifg=#ec5f67
 hi! SignifySignChange guifg=#c594c5
 
 
-" FORMATTERS
-"au FileType javascript setlocal formatprg=prettier
-"au FileType javascript.jsx setlocal formatprg=prettier
-"au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-"au FileType html setlocal formatprg=js-beautify\ --type\ html
-"au FileType scss setlocal formatprg=prettier\ --parser\ css
-"au FileType css setlocal formatprg=prettier\ --parser\ css
-
-
 " ---------------------------------
 " ------- PLUGIN SETTINGS  --------
 " ---------------------------------
 
-" ------ JEDI VIM -------
-let g:jedi#completion_enabled = 0
+let g:indentLine_enabled=0
+"let g:indentLine_color_term = 239
+let g:indentLine_char_list = ['|', ' ']
+"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
 
 " ------ RAINBOW BRACES  -------
-let g:rainbow_active = 1
-let g:rainbow_ctermfgs = ['Blue', 'Green', 'Yellow', 'LightRed', 'LightMagenta']
+"let g:rainbow_active = 1
+"let g:rainbow_ctermfgs = ['Blue', 'Green', 'Yellow', 'LightRed', 'LightMagenta']
 "let g:rainbow_ctermfgs = ['LightBlue', 'LightGreen', 'Yellow', 'LightRed', 'LightMagenta']
 "let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 "let g:rainbow#max_level = 16
 "let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']]
+"autocmd BufEnter * :RainbowParentheses<CR>
 
 " ------ DEVICONS -------
 let g:webdevicons_enable=1
 let g:webdevicons_enable_nerdtree=1
 let g:webdevicons_enable_unite=1
 let g:webdevicons_enable_airline_statusline=1
+let g:webdevicons_enable_vimfiler = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_ctrlp = 1
+let g:webdevicons_enable_flagship_statusline = 1
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:webdevicons_enable_denite = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderPatternMatching = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
+let WebDevIconsUnicodeDecorateFolderNodesExactMatches = 1
 
 " ------ NERDTree ------
 nmap t :NERDTreeToggle<CR>
@@ -262,8 +292,9 @@ nmap <silent> T :NERDTreeFind<cr>
 
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
-let NERDTreeIgnore = ['\.pyc$', '\.class$']
+let NERDTreeMinimalUI=1
+let NERDTreeIgnore = ['\.pyc$', '\.class$'] 
+
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -287,11 +318,10 @@ let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#tab_min_count = 1
 
-"" Configure error/warning section to use coc.nvim
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 let g:tsuquyomi_disable_default_mappings = 1
 let g:airline_highlighting_cache = 1
@@ -328,38 +358,36 @@ let g:airline_symbols.linenr = ''
 " --------- COC.VIM ----------
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-"" Use `[g` and `]g` to navigate diagnostics
-"nmap <silent> [g <Plug>(coc-diagnostic-prev)
-"nmap <silent> ]g <Plug>(coc-diagnostic-next)
-"
-"" Remap keys for gotos
-"nmap <silent> gd <Plug>(coc-definition)
-"nmap <silent> gy <Plug>(coc-type-definition)
-"nmap <silent> gi <Plug>(coc-implementation)
-"nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+let g:coc_global_extensions = [
+  \ 'coc-marketplace',
+  \ 'coc-highlight',
+  \ 'coc-pairs',
+  \ 'coc-git',
+  \ 'coc-lines',
+  \ 'coc-lists',
+  \ 'coc-snippets',
+  \ 'coc-yank',
+  \ 'coc-dictionary',
+  \ 'coc-tag',
+  \ 'coc-word',
+  \ 'coc-emoji',
+  \
+  \ 'coc-prettier',
+  \ 'coc-tsserver',
+  \ 'coc-tslint-plugin',
+  \ 'coc-eslint',
+  \ 'coc-emmet',
+  \ 'coc-json',
+  \ 'coc-yaml',
+  \ 'coc-css', 
+  \ 'coc-html',
+  \ 'coc-go',
+  \ 'coc-xml',
+  \ 'coc-markdownlint',
+  \ 'coc-python',
+  \ 'coc-java' 
+  \]
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -369,52 +397,128 @@ function! s:show_documentation()
   endif
 endfunction
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+" Use <c-space> to trigger completion.
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" Use `[g` and `]g` to navigate diagnostics
+" Use K to show documentation in preview window
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
+"inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+nmap <silent> gn <Plug>(coc-diagnostic-next)
+nmap <silent> gp <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>gj <Plug>(coc-implementation)
+
+nmap <silent> <leader>rn <Plug>(coc-rename)
+
 " Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <C-space>  <Plug>(coc-fix-current)
 
 
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json,javascript,javascriptreact setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+
+
 " Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
 " Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
 " use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 Format  :call CocAction('format')
+command! -nargs=? Fold    :call CocAction('fold', <f-args>)
+command! -nargs=0 OR      :call CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 Format :CocCommand prettier.formatFile
+
+"autocmd! InsertLeave * Format
+"autocmd! bufwritepost * Format
+nnoremap <C-f> :Format<cr>
+"autocmd bufwritepost init.vim source $MYVIMRC | AirlineRefresh
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+
 
 " Using CocList
-" Show all diagnostics
-"nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-"" Manage extensions
-"nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-"" Show commands
-"nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-"" Find symbol of current document
-"nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-"" Search workspace symbols
-"nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
+"     <leader>d      : Show all diagnostics
+"     <leader>e     : Manage extensions
+"     <leader>m     : Show commands
+"     <leader>o     : Find symbol of current document
+"     <leader>s     : Search workspace symbols
+"     <leader>j     : Do default action for next item.
+"     <leader>k     : Do default action for previous item.
+"     <leader>p     : Resume latest coc list
+nnoremap <silent> <leader>d :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader>e :<C-u>CocList extensions<cr>
+nnoremap <silent> <leader>m :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>o :<C-u>CocList outline<cr>
+nnoremap <silent> <leader>s :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <leader>j :<C-u>CocNext<CR>
-" Do default action for previous item.
 nnoremap <silent> <leader>k :<C-u>CocPrev<CR>
-" Resume latest coc list
 nnoremap <silent> <leader>p :<C-u>CocListResume<CR>
+
+
+" --------- COC-SNIPPETS ----------
+" Use <C-l> for trigger snippet expand.
+"imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+"vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<tab>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<S-Tab>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+" imap <C-j> <Plug>(coc-snippets-expand-jump)
   
-
-
 
 " --------- DENITE ----------
 "   ;         - Browser currently open buffers
-"   <leader>t - Browse list of files in current directory
-"   <leader>g - Search current directory for occurences of given term and close window if no results
+"   <leader>f - Browse list of files in current directory
 "   <leader>j - Search current directory for occurences of word under cursor
-nmap ; :Denite buffer<CR>
-nmap <leader>t :DeniteProjectDir file/rec<CR>
-nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
-nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
+"   <leader>g - Search current directory for occurences of 
+"               given term and close window if no results
+nmap <leader>f :Denite buffer<CR>
+nmap <leader>p :DeniteProjectDir file/rec buffer<CR>
+"nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
+"nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
 
+
+call denite#custom#map('insert', '<M-j>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<M-k>', '<denite:move_to_previous_line>', 'noremap')
+    " easier than n/p
 
 " Define mappings while in 'filter' mode
 "   <C-o>         - Switch to normal mode inside of search results
@@ -472,32 +576,31 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action', 'vsplit')
   nnoremap <silent><buffer><expr> <C-i>
   \ denite#do_map('do_action', 'split')
+  inoremap <silent><buffer> <M-k> <Esc><C-w>p:call cursor(line('.')+1,0)<CR><C-w>pA
+  inoremap <silent><buffer> <M-j> <Esc><C-w>p:call cursor(line('.')-1,0)<CR><C-w>pA
 endfunction
+
 
 " Use ripgrep for searching current directory for files
 " By default, ripgrep will respect rules in .gitignore
 "   --files: Print each file that would be searched (but don't search)
 "   --glob:  Include or exclues files for searching that match the given glob
 "            (aka ignore .git files)
-"
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
-
-" Use ripgrep in place of "grep"
-call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('file/rec', 'command', ['rg', '--files', '--hidden', '--glob', '!.git'])
 
 " Custom options for ripgrep
 "   --vimgrep:  Show results with every match on it's own line
 "   --hidden:   Search hidden directories and files
 "   --heading:  Show the file name above clusters of matches from each file
 "   --S:        Search case insensitively if the pattern is all lowercase
+" Use ripgrep in place of "grep"
+call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
-
 " Recommended defaults for ripgrep via Denite docs
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
-
 " Remove date from buffer list
 call denite#custom#var('buffer', 'date_format', '')
 
@@ -511,18 +614,20 @@ call denite#custom#var('buffer', 'date_format', '')
 "   highlight_matched_char  - Matched characters highlight
 "   highlight_matched_range - matched range highlight
 let s:denite_options = {'default' : {
-\ 'split': 'floating',
-\ 'start_filter': 1,
-\ 'auto_resize': 1,
-\ 'source_names': 'short',
-\ 'prompt': 'λ ',
-\ 'statusline': 0,
-\ 'highlight_matched_char': 'QuickFixLine',
-\ 'highlight_matched_range': 'Visual',
-\ 'highlight_window_background': 'Visual',
-\ 'highlight_filter_background': 'DiffAdd',
-\ 'winrow': 1,
-\ 'vertical_preview': 1
+    \ 'split': 'floating',
+    \ 'start_filter': 1,
+    \ 'auto_resize': 1,
+    \ 'direction': 'rightbelow',
+    \ 'source_names': 'short',
+    \ 'prompt': 'λ ',
+    \ 'statusline': 1,
+    \ 'highlight_matched_char': 'QuickFixLine',
+    \ 'highlight_matched_range': 'Visual',
+    \ 'highlight_window_background': 'Visual',
+    \ 'highlight_filter_background': 'DiffAdd',
+    \ 'winrow': 1,
+    \ 'expand': 1,
+    \ 'vertical_preview': 1
 \ }}
 
 " Loop through denite options and enable them
@@ -535,8 +640,21 @@ function! s:profile(opts) abort
 endfunction
 call s:profile(s:denite_options)
 
+
+
+" ---------------------------------
+" --------- COLORSCHEME -----------
+" ---------------------------------
+
 let g:edge_style = 'neon'
 let g:edge_disable_italic_comment = 1
 
 colorscheme edge
 
+" Reload icons after init source
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
+
+" cursoline hightlight color
+:hi CursorLine  cterm=NONE  guibg=Black
