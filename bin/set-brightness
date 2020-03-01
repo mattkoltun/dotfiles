@@ -1,0 +1,26 @@
+#!/usr/bin/zsh
+
+if [ $1 = "up" ]
+then 
+  delta=0.2
+elif [ $1 = "down" ]
+then
+  delta=-0.2
+else
+  echo "$1 - option not identified"
+  exit 1 
+fi
+
+let current=`xrandr --verbose | grep -i brightness | cut -d ' ' -f2 | head -n 1`
+let new=`echo "$current + $delta" | bc -l`
+
+if [ $(echo "$new > 1" | bc -l) -eq 1 ]
+then
+  new=1
+elif [ $(echo "$new < 0.4" | bc -l) -eq 1 ]
+then
+  new=0.4
+fi
+
+xrandr --output eDP-1 --brightness $new
+notify-send "Brightness set to $(printf '%3.2f' $new)" -i /usr/share/icons/gnome/48x48/devices/display.png
