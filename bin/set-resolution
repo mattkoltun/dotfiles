@@ -1,0 +1,8 @@
+#!/usr/bin/sh 
+
+xrandr --output HDMI-1 --scale 0.5x0.5
+xrandr --output eDP-1 --scale 0.9999x0.9999
+xrandr --output HDM1-2 --scale 0.9999x0.9999
+
+notify-send "Resolution and scale was set to 0.5 and 0.9999" -i /usr/share/icons/gnome/48x48/devices/display.png
+

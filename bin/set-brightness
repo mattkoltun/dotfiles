@@ -23,4 +23,4 @@ then
 fi
 
 xrandr --output eDP-1 --brightness $new
-notify-send "Brightness set to $(printf '%3.2f' $new)" -i /usr/share/icons/gnome/48x48/devices/display.png
+#notify-send "Brightness set to $(printf '%3.2f' $new)" -i /usr/share/icons/gnome/48x48/devices/display.png

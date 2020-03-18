@@ -51,6 +51,7 @@ Plug 'ekalinin/dockerfile.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 
+Plug 'alvan/vim-closetag'
 
 
 
@@ -184,6 +185,9 @@ nmap go o<ESC>k
 nmap I ^i
 nmap A $a
 
+nnoremap <leader>d "_d
+nnoremap x "_x
+
 nmap <C-r> <C-r>zz
 nmap G Gzz
 nmap n nzz
@@ -196,6 +200,8 @@ nmap j jzz
 nmap k kzz
 nmap h hzz
 nmap l lzz
+nmap <C-d> <C-d>zz
+nmap <C-u> <C-u>zz
 
 "autoclose 2 lines below and position cursor in the middle 
 inoremap (<CR> (<CR>)<ESC>O
@@ -254,6 +260,12 @@ let g:indentLine_enabled=0
 "let g:indentLine_color_term = 239
 let g:indentLine_char_list = ['|', ' ']
 "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+
+" ---------------------------------
+" ------ CLOSETAG SETTINGS  -------
+" ---------------------------------
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.xml"
 
 
 " ------ RAINBOW BRACES  -------
