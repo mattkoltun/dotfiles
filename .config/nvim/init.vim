@@ -35,7 +35,14 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'majutsushi/tagbar'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'mhinz/vim-startify'
+Plug 'larsbs/vimterial_dark'
 "Plug 'scrooloose/nerdcommenter'
+
+
+"Plug 'mxw/vim-jsx'
+"Plug 'pangloss/vim-javascript'
+
+Plug 'eliba2/vim-node-inspect'
 
 
 " --------- EDITOR ----------
@@ -52,7 +59,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 
 Plug 'alvan/vim-closetag'
-
 
 
 " --------- FILE MANAGER ----------
@@ -153,7 +159,8 @@ nmap <leader>q :q<cr>
 nmap <leader>n :noh<cr>
 nmap <leader>s :windo set scrollbind
 nmap <leader>S :windo set scrollbind!
-nmap <leader>c :bd<cr>
+nmap <leader>c :b#<bar>bd#<CR>
+"nmap <leader>c :bd<cr>
 "nmap <leader>e :Explore<cr>
 "nnoremap <leader>a ggVG
 
@@ -233,6 +240,24 @@ vmap l lzz
 "nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
 "nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
 
+" 
+" VIM-JAVASCRIPT pluging
+"
+
+set conceallevel=1
+
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+"let g:javascript_conceal_noarg_arrow_function = "🞅"
+"let g:javascript_conceal_underscore_arrow_function = "🞅"
 
 " ---------------------------------
 " ------- NEOVIM SETTINGS  --------
@@ -315,18 +340,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " ------ AIRLINE -------
 
 let g:airline_theme='edge'
-
 let g:airline_extensions = ['branch', 'hunks', 'coc', 'tabline', 'denite' ]
-
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 let g:airline_powerline_fonts = 1
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#show_splits = 0
+"let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#formatter = 'jsformatter'
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+"let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#show_splits = 1
 let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#tab_min_count = 1
 
