@@ -21,11 +21,16 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-
-PATH=$PATH:~/.local/bin
-
-alias ud=sudo apt-get update
-alias ug=sudo apt get upgrade -y 
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$PATH:$HOME/.local/bin"
+fi
 
 
-source ~/.env_vars
+if [ -f "$HOME/.env_vars" ]; then
+    source ~/.env_vars
+fi
+
+
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+

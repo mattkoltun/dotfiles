@@ -1,0 +1,218 @@
+{
+	// "workbench.colorTheme": "Default High Contrast",
+	"editor.autoIndent": "advanced",
+	"editor.cursorStyle": "block-outline",
+	"editor.detectIndentation": true,
+	"editor.hideCursorInOverviewRuler": true,
+	"editor.insertSpaces": false,
+	"editor.lineNumbers": "relative",
+	"editor.fontSize": 14,
+	"editor.fontFamily": "'Hack Nerd Font Mono Regular', 'Monospace Regular', 'Droid Sans Mono', 'Ubuntu Mono', 'monospace', 'Fira Code'",
+	//"editor.fontFamily": "'Fira Code', 'Noto Mono', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
+
+	"editor.fontLigatures": true,
+	"editor.minimap.enabled": false,
+	"editor.overviewRulerBorder": false,
+	"editor.tabSize": 2,
+	"editor.wordWrapColumn": 100,
+	"explorer.confirmDragAndDrop": false,
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"window.zoomLevel": 0,
+	"workbench.activityBar.visible": false,
+	"workbench.sideBar.location": "left",
+	"workbench.startupEditor": "newUntitledFile",
+
+	// COLORIZE
+	"colorize.languages": [
+		"css",
+		"sass",
+		"scss",
+		"less",
+		"postcss",
+		"sss",
+		"stylus",
+		"xml",
+		"svg",
+		"javascript"
+	],
+	// ESLINT
+	"eslint.options": {
+		"extensions": [".html", ".js", ".vue", ".jsx"]
+	},
+	"eslint.validate": [
+		{
+			"language": "html",
+			"autoFix": true
+		},
+		{
+			"language": "vue",
+			"autoFix": true
+		},
+		{
+			"language": "javascript",
+			"autoFix": true
+		},
+		{
+			"language": "javascriptreact",
+			"autoFix": true
+		}
+	],
+	// PRETTIER+
+	"prettier.eslintIntegration": false,
+	"prettier.tabWidth": 1,
+	"prettier.useTabs": true,
+	"editor.formatOnSave": true,
+	// Increase timeout for format on save
+	//"editor.formatOnSaveTimeout": 1500,
+	// Format per-language file on save
+	"[javascript]": {
+		"editor.defaultFormatter": "svipas.prettier-plus"
+		// "editor.formatOnSave": false
+	},
+	// VIM
+	"vim.easymotion": true,
+	"vim.foldfix": true,
+	"vim.gdefault": true,
+	"vim.hlsearch": true,
+	"vim.incsearch": true,
+	"vim.leader": "<space>",
+	"vim.normalModeKeyBindings": [],
+	"vim.sneak": true,
+	"vim.textwidth": 100,
+	"vim.useCtrlKeys": true,
+	"vim.useSystemClipboard": false,
+	"vim.handleKeys": {
+		"<C-a>": false,
+		"<C-f>": false,
+		"<C-b": false
+	},
+	"vim.insertModeKeyBindings": [
+		{
+			"before": ["j", "j"],
+			"after": ["<Esc>"]
+		},
+		{
+			"before": ["<C-l>"],
+			"after": ["<ESC>", "A"]
+		}
+	],
+	"vim.normalModeKeyBindingsNonRecursive": [
+		{
+			"before": ["t"],
+			"commands": [
+				{
+					"command": "workbench.files.action.toggle"
+				}
+			]
+		},
+		{
+			"before": ["u"],
+			"commands": [
+				{
+					"command": "undo"
+				}
+			]
+		},
+		{
+			"before": ["<C-r"],
+			"commands": [
+				{
+					"command": "redo"
+				}
+			]
+		},
+		{
+			"before": ["s"],
+			"after": ["x", "h", "a"]
+		},
+		{
+			"before": ["I"],
+			"after": ["^", "i"]
+		},
+		{
+			"before": ["A"],
+			"after": ["$", "a"]
+		},
+		{
+			"before": ["<leader>", "d"],
+			"after": ["d", "d"]
+		},
+		{
+			"before": ["<leader>", "w"],
+			"commands": ["workbench.action.files.save"]
+		},
+		{
+			"before": ["<leader>", "q"],
+			"commands": [":q"]
+		},
+		{
+			"before": ["<leader>", "n"],
+			"commands": [":nohl"]
+		},
+		{
+			"before": ["j"],
+			"after": ["j", "z", "z"]
+		},
+		{
+			"before": ["k"],
+			"after": ["k", "z", "z"]
+		},
+		{
+			"before": ["G"],
+			"after": ["G", "z", "z"]
+		},
+		{
+			"before": ["{"],
+			"after": ["{", "z", "z"]
+		},
+		{
+			"before": ["}"],
+			"after": ["}", "z", "z"]
+		},
+		{
+			"before": ["["],
+			"after": ["[", "z", "z"]
+		},
+		{
+			"before": ["]"],
+			"after": ["]", "z", "z"]
+		}
+	],
+	"vim.visualModeKeyBindingsNonRecursive": [
+		{
+			"before": ["j"],
+			"after": ["j", "z", "z"]
+		},
+		{
+			"before": ["k"],
+			"after": ["k", "z", "z"]
+		},
+		{
+			"before": ["{"],
+			"after": ["{", "z", "z"]
+		},
+		{
+			"before": ["}"],
+			"after": ["}", "z", "z"]
+		},
+		{
+			"before": ["["],
+			"after": ["[", "z", "z"]
+		},
+		{
+			"before": ["]"],
+			"after": ["]", "z", "z"]
+		}
+	],
+	"[dockerfile]": {
+		"editor.defaultFormatter": "ms-azuretools.vscode-docker"
+	},
+	"workbench.statusBar.visible": true,
+	"window.menuBarVisibility": "toggle",
+	"explorer.confirmDelete": false,
+	"[html]": {
+		"editor.defaultFormatter": "svipas.prettier-plus"
+	}
+}

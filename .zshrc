@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-#
 
 #echo "Loading .zshrc"
 
@@ -14,12 +13,13 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.6
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mati/.oh-my-zsh"
+export OH_MY_ZSH="/home/mati/.oh-my-zsh"
+export ZSH_CUSTOM="/home/mati/.oh-my-zsh/custom"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="blinks"
 ZSH_THEME="oxide"
 
 # Set list of themes to pick from when loading at random
@@ -78,6 +78,7 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
+  zsh-completions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -111,15 +112,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias please=sudo
-
-alias up="please apt update"
-alias ug="please apt upgrade -y"
+alias up="sudo apt update"
+alias ug="sudo apt upgrade -y"
 alias l='ls -lFvh'
 alias ll='ls -lAvh'
 alias la='ls -lavh'
 
+alias please=sudo
+alias vim=nvim
+
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+alias gksu='pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY'
 
 
 # set PATH so it includes user's private bin if it exists
@@ -132,13 +136,30 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH=$HOME/.local/bin:$PATH
 fi
 
+# adding snapd path 
+if [ -d "/snap/bin" ] ; then
+    PATH=/snap/bin:$PATH
+fi
+
 # load apache maven
-# if [ -d "$HOME/Apps/apache-maven/bin" ] ; then
-#     PATH=$HOME/Apps/apache-maven/bin:$PATH
-# fi
+if [ -d "$HOME/Apps/apache-maven/bin" ] ; then
+    PATH=$HOME/Apps/apache-maven/bin:$PATH
+fi
 
+#xmodmap -e "keycode  13 = 4 EuroSign 4 EuroSign"
 /usr/bin/setxkbmap -option "ctrl:swapcaps"
-xset r rate 240 40                          # delay and hits per second
+xset r rate 350 30                          # delay and hits per second
 
-#echo "LOADED .zshrc"
+# stop resetting keybinds
+gsettings set org.gnome.settings-daemon.plugins.keyboard active false
+
+# disable super+q keybind
+gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false
+
+
+# set Spaceship ZSH as a prompt
+# autoload -U promptinit; promptinit
+# prompt spaceship
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
