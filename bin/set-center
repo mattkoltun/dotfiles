@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/sh
 
 byH=$1 
 byW=$2

@@ -991,3 +991,52 @@ tm
 t
 tm
 exit
+echo $0
+cd repos/
+cd dotfiles/
+ll
+ln -h
+ln --help
+cd 
+ln -s repos/dotfiles/.env_vars 
+ll
+ln -s repos/dotfiles/.tmux.conf 
+ln -s '/home/mati/repos/dotfiles/.zshenv'
+ll
+ll repos/dotfiles/
+git rm repos/dotfiles/.env_vars 
+rm repos/dotfiles/.env_vars 
+rm .env_vars 
+rm .tmux.conf 
+ln -s /home/mati/repos/dotfiles/.tmux.conf 
+ln -s /home/mati/repos/dotfiles/.zshrc 
+ln -s /home/mati/repos/dotfiles/.zsh_history 
+ll
+mv .profile tmp/
+mv .bashrc tmp/
+mv bash* tmp/
+mv .bash* tmp/
+ll
+ln -s /home/mati/repos/dotfiles/.bash_history 
+ln -s /home/mati/repos/dotfiles/.bashrc 
+ln -s /home/mati/repos/dotfiles/.vimrc 
+ln -s /home/mati/repos/dotfiles/.zprofile 
+ll .oh-my-zsh/
+cd .oh-my-zsh/
+git reset --hard
+git pull
+ll ../repos/dotfiles/
+ll ../repos/dotfiles/.git
+git config
+git config --global 
+git config --global user.name "Matt Koltun"
+git config --global user.email "mati@koltunm.com"
+git pull
+ll
+git reset --hard
+gst
+git status
+cd 
+mv -f .oh-my-zsh/ tmp/
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+exit
