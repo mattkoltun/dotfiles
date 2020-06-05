@@ -18,6 +18,12 @@
   "suggest.timeout": 500,
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
+  "suggest.noselect": false,
+
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  },
 
   "coc.source.file.ignoreHidden": false,
   "coc.preferences.formatOnType": false,

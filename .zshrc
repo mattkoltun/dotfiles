@@ -164,3 +164,4 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 xdg-mime default webtorrent-desktop.desktop x-scheme-handler/magnet
+alias ull='apt list --upgradable'
