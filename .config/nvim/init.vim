@@ -24,6 +24,15 @@ Plug 'arzg/vim-colors-xcode'
 Plug 'morhetz/gruvbox'
 
 
+Plug 'lewis6991/moonlight.vim'
+Plug 'sainnhe/sonokai'
+Plug 'wadackel/vim-dogrun'
+Plug 'megantiu/true.vim'
+Plug 'artanikin/vim-synthwave84'
+Plug 'gryf/wombat256grf'
+Plug 'franbach/miramare'
+
+
 " --------- FUNCTIONAL ----------
 "Plug 'oblitum/rainbow'                      " Rainbow braces
 "Plug 'junegunn/rainbow_parentheses.vim'
@@ -65,7 +74,7 @@ Plug 'alvan/vim-closetag'
 
 
 
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 
 
 " --------- FILE MANAGER ----------
@@ -90,6 +99,7 @@ set encoding=utf-8
 "set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 "set guifont=Fira\ Mono\ Bold\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 "set t_Co=256
+set guifont=FiraCode\ Nerd\ Font\ Mono\ Regular\ 12
 
 set background=dark
 
@@ -140,6 +150,8 @@ set softtabstop=2 	" change number of spaces that a TAB counts for during editin
 set shiftwidth=2 	" indentation amount for < and > commands
 
 
+let g:miramare_enable_italic = 1
+let g:miramare_disable_italic_comment = 0
 
 " --------- Reload CONFIG at save  ----------
 nmap <leader>rr :source $MYVIMRC<cr> 
@@ -182,8 +194,9 @@ no <down> ddp
 no <up> ddkP
 
 imap jj <ESC>
-"imap <C-j> <ESC>j
-"imap <C-k> <ESC>k
+imap <M-l> <ESC>
+imap <M-j> <ESC>j
+imap <M-k> <ESC>k
 inoremap <C-l> <ESC>A
 imap <C-space> <ESC>
 vmap <C-space> <ESC>
@@ -216,6 +229,7 @@ nmap h hzz
 nmap l lzz
 nmap <C-d> <C-d>zz
 nmap <C-u> <C-u>zz
+
 
 "autoclose 2 lines below and position cursor in the middle 
 inoremap (<CR> (<CR>)<ESC>O
@@ -362,7 +376,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " ------ AIRLINE -------
 
-let g:airline_theme='edge'
+"let g:airline_theme='edge'
+let g:true_airline = 1
+let g:airline_theme='gruvbox'
 let g:airline_extensions = ['branch', 'hunks', 'coc', 'tabline', 'denite' ]
 let g:airline_powerline_fonts = 1
 
@@ -481,8 +497,8 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 nmap <silent> gn <Plug>(coc-diagnostic-next)
 nmap <silent> gp <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>gd <Plug>(coc-definition)
-nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>gd <Plug>(coc-definition)zz
+nmap <silent> <leader>gr <Plug>(coc-references)zz
 nmap <silent> <leader>gj <Plug>(coc-implementation)
 
 nmap <silent> <leader>rn <Plug>(coc-rename)
@@ -720,7 +736,8 @@ call s:profile(s:denite_options)
 let g:edge_style = 'neon'
 let g:edge_disable_italic_comment = 1
 
-colorscheme edge
+"colorscheme edge
+colorscheme gruvbox
 
 " Reload icons after init source
 if exists('g:loaded_webdevicons')

@@ -148,7 +148,7 @@ fi
 
 #xmodmap -e "keycode  13 = 4 EuroSign 4 EuroSign"
 /usr/bin/setxkbmap -option "ctrl:swapcaps"
-xset r rate 350 30                          # delay and hits per second
+xset r rate 225 40                          # delay and hits per second
 
 # stop resetting keybinds
 gsettings set org.gnome.settings-daemon.plugins.keyboard active false

@@ -40,14 +40,18 @@ endsnippet
 snippet rpt
 ${1}.propTypes = {
 ${2}: PropTypes.${0},
-}
+};
+endsnippet
+
+snippet pt "PropType " b
+	${1}: PropTypes.${2},
 endsnippet
 
 # Default props for Presentational component
 snippet rdp
 ${1}.defaultProps = {
 ${2}: ${0},
-}
+};
 endsnippet
 
 # Functional components
@@ -55,24 +59,24 @@ snippet rtfunc "React function component template" b
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-const ${1:`!p snip.rv = snip.basename`} = (${2}) => {
+const ${1:Name} = (${2}) => {
 	return (
 		<>
 			${4:<p>Body</p>}
 		</>
 		)
-}
+};
 
-${1:`!p snip.rv = snip.basename`}.propTypes = {
+${1:Name}.propTypes = {
 	${3}
 }
 
-export default ${1:`!p snip.rv = snip.basename`}
+export default ${1:Name};
 endsnippet
 
 # context template
 snippet rtcont "React context template" b
-import React, {createContext, useContext} from "react";
+import React, { createContext, useContext } from "react";
 import PropTypes from "prop-types";
 
 export const ${1:Name}Context = createContext(null);
@@ -96,16 +100,16 @@ export default ${1:Name}Provider;
 endsnippet
 
 snippet msty "React makeStyles" b
-${3}import { makeStyles, createStyles } from "@material-ui/core/styles"
+${3}import { makeStyles, createStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => createStyles({
 	${1:root} : {
 		${2}
 	}
-}))
+}));
 endsnippet
 
 snippet usty "React useStyles" b
-const classes = useStyles()
+const classes = useStyles();
 endsnippet
 
 snippet rfunc "React function component" b
@@ -115,7 +119,22 @@ const ${1:name} = (${2:props}) => {
 			${3:<p>body</p>}
 		</>
 	)
+};
+endsnippet
+
+snippet rred "React reducer" b
+const reducer = (state, action) => {
+  switch (action.type) {
+    default: 
+      throw "Action type " + action.type + " not recognized.";
+  }
 }
+
+const initialState = {
+
+}
+
+const [state, dispatch] = React.useReducer(reducer, initialState)
 endsnippet
 
 # React Hooks
@@ -123,9 +142,9 @@ endsnippet
 snippet reff "React useEffect" b
 React.useEffect(() => {
 	${2}
-}, [${1}])
+}, [${1}]);
 endsnippet
 
 snippet rstt "React useState" b
-const [${1}, ${2}] = React.useState(${3})
+const [${1}, ${2}] = React.useState(${3});
 endsnippet
