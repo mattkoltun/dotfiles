@@ -36,6 +36,8 @@ Plug 'franbach/miramare'
 " --------- FUNCTIONAL ----------
 "Plug 'oblitum/rainbow'                      " Rainbow braces
 "Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'jiangmiao/auto-pairs' " bracket pairing
+
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'vim-airline/vim-airline-themes'
@@ -66,6 +68,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 
 Plug 'alvan/vim-closetag'
+
+"Plug 'davidhalter/jedi-vim'
 
 "Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
@@ -232,17 +236,17 @@ nmap <C-u> <C-u>zz
 
 
 "autoclose 2 lines below and position cursor in the middle 
-inoremap (<CR> (<CR>)<ESC>O
-inoremap [<CR> [<CR>]<ESC>O
-inoremap {<CR> {<CR>}<ESC>O
-"autoclose 2 lines below adding ; and position cursor in the middle 
-inoremap (;<CR> (<CR>);<ESC>O
-inoremap [;<CR> [<CR>];<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-"autoclose 2 lines below adding , and position cursor in the middle 
-inoremap (,<CR> (<CR>),<ESC>O
-inoremap [,<CR> [<CR>],<ESC>O
-inoremap {,<CR> {<CR>},<ESC>O
+"inoremap (<CR> (<CR>)<ESC>O
+"inoremap [<CR> [<CR>]<ESC>O
+"inoremap {<CR> {<CR>}<ESC>O
+""autoclose 2 lines below adding ; and position cursor in the middle 
+"inoremap (;<CR> (<CR>);<ESC>O
+"inoremap [;<CR> [<CR>];<ESC>O
+"inoremap {;<CR> {<CR>};<ESC>O
+""autoclose 2 lines below adding , and position cursor in the middle 
+"inoremap (,<CR> (<CR>),<ESC>O
+"inoremap [,<CR> [<CR>],<ESC>O
+"inoremap {,<CR> {<CR>},<ESC>O
 
 vmap <Tab> >gv
 vmap <S-Tab> <gv

@@ -121,6 +121,8 @@ alias la='ls -lavh'
 alias please=sudo
 alias vim=nvim
 
+alias bootbios=systemctl reboot --firmware-setup
+
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias gksu='pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY'

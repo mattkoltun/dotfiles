@@ -1,5 +1,5 @@
 {
-  //"codeLens.enable": true,
+  "codeLens.enable": true,
   "diagnostic.errorSign": "✖",
   "diagnostic.hintSign": "⚑",
   "diagnostic.warningSign": "⚠",
@@ -60,6 +60,7 @@
     "javascriptreact",
     "typescript.tsx"
   ],
+  "python.jediEnabled": false,
   "languageserver": {
     "efm": {
       "command": "efm-langserver",
