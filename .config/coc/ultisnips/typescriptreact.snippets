@@ -24,42 +24,39 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-
 # Import only React
-snippet ri1 "import react #1" b
+snippet ri "import react" b
+
 import React from 'react';
-endsnippet
 
-# Import both React and hooks
-snippet ri2 "import react #2" b
-import React, {useEffect, useState} from "react";
-import PropTypes from 'prop-types';
-endsnippet
-
-# Proptypes for Presentational component
-snippet rpt
-${1}.propTypes = {
-${2}: PropTypes.${0},
-};
-endsnippet
-
-snippet pt "PropType " b
-	${1}: PropTypes.${2},
-endsnippet
-
-# Default props for Presentational component
-snippet rdp
-${1}.defaultProps = {
-${2}: ${0},
-};
 endsnippet
 
 # Functional components
 snippet rtfunc "React function component template" b
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
-const ${1:Name} = (${2}) => {
+type `!v expand('%:t:r')`Props = {
+	${1}
+}
+
+const `!v expand('%:t:r')` : React.FC<`!v expand('%:t:r')`Props> = (${2}) => {
+	return (
+		<>
+			${3:<p>Body</p>}
+		</>
+		)
+};
+
+export default `!v expand('%:t:r')`
+endsnippet
+
+snippet rfunc "React function component" b
+
+interface ${1:Name}Props {
+	${2}
+}
+
+const ${1:Name}: React.FC<${1:Name}Props> = (${3}) => {
 	return (
 		<>
 			${4:<p>Body</p>}
@@ -67,17 +64,11 @@ const ${1:Name} = (${2}) => {
 		)
 };
 
-${1:Name}.propTypes = {
-	${3}
-}
-
-export default ${1:Name};
 endsnippet
 
 # context template
 snippet rtcont "React context template" b
 import React, { createContext, useContext } from "react";
-import PropTypes from "prop-types";
 
 export const ${1:Name}Context = createContext(null);
 export const use${1:Name} = () => useContext(${1:Name}Context);
@@ -126,7 +117,7 @@ snippet rred "React reducer" b
 const reducer = (state, action) => {
 	switch (action.type) {
 		default: 
-		throw "Action type " + action.type + " not recognized.";
+			throw "Action type " + action.type + " not recognized.";
 	}
 }
 

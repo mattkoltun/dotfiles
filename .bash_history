@@ -1040,3 +1040,6 @@ cd
 mv -f .oh-my-zsh/ tmp/
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 exit
+sudo apt purge nvidia*
+sudo apt-get purge nvidia-*
+exit

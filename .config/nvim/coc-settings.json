@@ -12,12 +12,12 @@
   "suggest.detailField": "preview",
   "suggest.detailMaxLength": 100,
   "suggest.enablePreview": true,
-  "suggest.maxPreviewWidth": 35,
+  "suggest.maxPreviewWidth": 45,
   "suggest.removeDuplicateItems": true,
   "suggest.autoTrigger": "always",
-  "suggest.timeout": 500,
+  "suggest.timeout": 2000,
   "suggest.echodocSupport": true,
-  "suggest.maxCompleteItemCount": 20,
+  "suggest.maxCompleteItemCount": 150,
   "suggest.noselect": false,
 
   "snippets.extends": {
@@ -41,18 +41,26 @@
   ],
 
   "prettier.printWidth": 100,
-  "prettier.singleQuote": false,
+  "prettier.singleQuote": true,
   "prettier.statusItemText": "ⓟ ",
-  "prettier.eslintIntegration": false,
-  "prettier.tslintIntegration": false,
+  "prettier.eslintIntegration": true,
+  "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": false,
 
   "tsserver.enable": true,
+  "tsserver.npm": "/usr/local/bin/npm",
+  "tsserver.log": "normal",
+  "tsserver.maxTsServerMemory": 3000,
 
+  "typescript.preferences.quoteStyle": "single",
+
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
   "eslint.enable": true,
-  "eslint.autoFixOnSave": false,
-  "eslint.autoFix": false,
-  "eslint.run": "onType",
+  "eslint.autoFixOnSave": true,
+  "eslint.autoFix": true,
+  "eslint.run": "onSave",
   "eslint.filetypes": [
     "javascript",
     "typescript",
@@ -61,14 +69,6 @@
     "typescript.tsx"
   ],
   "python.jediEnabled": false,
-  "languageserver": {
-    "efm": {
-      "command": "efm-langserver",
-      "args": [],
-      // custom config path
-      // "args": ["-c", "/path/to/your/config.yaml"],
-      //"filetypes": ["vim", "eruby", "markdown", "yaml"]
-      "filetypes": ["vim"]
-    }
-  }
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true
 }
