@@ -1,4 +1,6 @@
 {
+  "pairs.alwaysPairCharacters": ["(", "[", "{", "<", "'", "\"", "`"],
+  "coc.source.emoji.filetypes": null,
   "codeLens.enable": true,
   "diagnostic.errorSign": "✖",
   "diagnostic.hintSign": "⚑",

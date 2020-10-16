@@ -47,18 +47,14 @@ Plug 'embark-theme/vim', { 'as': 'embark' }
 
 
 " --------- FUNCTIONAL ----------
-"Plug 'oblitum/rainbow'                      " Rainbow braces
-"Plug 'junegunn/rainbow_parentheses.vim'
-"Plug 'luochen1990/rainbow'
-Plug 'jiangmiao/auto-pairs' " bracket pairing
+Plug 'junegunn/vim-emoji'   
 Plug 'junegunn/rainbow_parentheses.vim'
 
 
-
-Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'mhinz/vim-startify'
 
 "Plug 'yuezk/vim-js'
 "Plug 'maxmellon/vim-jsx-pretty'
@@ -74,13 +70,13 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'eliba2/vim-node-inspect'  " NODE DEBUGGER
 
 " --------- EDITOR ----------
-Plug 'tmhedberg/matchit'
-Plug 'tpope/vim-surround'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'tmhedberg/matchit'
+"Plug 'tpope/vim-surround'
 " Plug 'neoclide/coc-denite'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-neco'
-" Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-vim'
+" Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
 "Plug 'Yggdroot/indentLine'
 "Plug 'ianks/vim-tsx'
 
@@ -209,6 +205,8 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.xml,*.tsx"
 let g:rainbow_active = 1
 let g:rainbow#max_level = 16
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+
+
 
 autocmd FileType * RainbowParentheses
 
