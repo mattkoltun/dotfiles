@@ -127,6 +127,7 @@ alias bootbios=systemctl reboot --firmware-setup
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias gksu='pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY'
+alias get-battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | sed -e "s/\s*//g" | cut -f2 -d:'
 
 
 # set PATH so it includes user's private bin if it exists

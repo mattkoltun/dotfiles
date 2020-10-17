@@ -173,7 +173,7 @@ nnoremap <silent> <leader>o :<C-u>CocList outline<cr>
 nnoremap <silent> <leader>s :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <leader>j :<C-u>CocNext<CR>
 nnoremap <silent> <leader>k :<C-u>CocPrev<CR>
-nnoremap <silent> <leader>p :<C-u>CocListResume<CR>
+"nnoremap <silent> <leader>p :<C-u>CocListResume<CR>
 
 
 " --------- COC-SNIPPETS ----------
