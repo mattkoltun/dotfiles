@@ -6,6 +6,9 @@
 #echo ".zshrc sourcing envs"
 source /etc/environment
 
+source $(dirname $(gem which colorls))/tab_complete.sh
+
+
 export GIT_EDITOR=vim
 export VISAUL=vim
 export EDITOR="$VISUAL"
@@ -21,6 +24,7 @@ export ZSH_CUSTOM="/home/mati/.oh-my-zsh/custom"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="oxide"
+# ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -115,9 +119,12 @@ source $ZSH/oh-my-zsh.sh
 
 alias up="sudo apt update"
 alias ug="sudo apt upgrade -y"
-alias l='ls -lFvh'
-alias ll='ls -lAvh'
-alias la='ls -lavh'
+#alias l='ls -lFvh'
+#alias ll='ls -lAvh'
+#alias la='ls -lavh'
+alias ls='colorls -h --group-directories-first --almost-all'
+alias l='colorls -h --group-directories-first --long'
+alias ll='colorls -h --group-directories-first --long --almost-all'
 
 alias please=sudo
 alias vim=nvim
@@ -127,7 +134,8 @@ alias bootbios=systemctl reboot --firmware-setup
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias gksu='pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY'
-alias get-battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | sed -e "s/\s*//g" | cut -f2 -d:'
+alias getBattery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | sed -e "s/\s*//g" | cut -f2 -d:'
+alias getFonts='fc-list | cut -d: -f2 | sort | uniq '
 
 
 # set PATH so it includes user's private bin if it exists

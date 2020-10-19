@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+batt=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | sed -e 's/\s*//g' | cut -f2 -d:)
+state=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state | sed -e 's/\s*//g' | cut -f2 -d:)
+
+if [[ "$state" == "charging" ]] ; then
+  echo "$batt ⚡"
+elif [[  "$state" == "fully-charged" ]] ; then 
+  echo "$batt 🔋"
+else
+  echo "$batt 💀"
+fi
+
+exit 0

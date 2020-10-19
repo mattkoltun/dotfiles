@@ -1,5 +1,6 @@
 {
   "pairs.alwaysPairCharacters": ["(", "[", "{", "<", "'", "\"", "`"],
+  "pairs.enableBackspace": true,
   "coc.source.emoji.filetypes": null,
   "codeLens.enable": true,
   "diagnostic.errorSign": "✖",

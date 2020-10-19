@@ -243,7 +243,9 @@ let g:startify_lists = [
 
 let g:startify_bookmarks = [
           \ { 'i': '~/.config/nvim/init.vim' },
-          \ { 'c': '~/.config/nvim/coc-settings.json' }
+          \ { 's': '~/.config/nvim/coc-settings.json' },
+          \ { 'c': '~/.config/nvim/coc.vim' },
+          \ { 'f': '~/.config/nvim/fzf.vim' },
           \ ]
 
 
@@ -323,7 +325,9 @@ let g:edge_style = 'neon'
 let g:edge_disable_italic_comment = 1
 
 "colorscheme edge
-colorscheme gruvbox
+"colorscheme gruvbox
+let g:dracula_colorterm = 0
+colorscheme dracula
 
 " Reload icons after init source
 if exists('g:loaded_webdevicons')
