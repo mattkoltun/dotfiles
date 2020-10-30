@@ -1,13 +1,7 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-#echo "Loading .zshrc"
-
-#echo ".zshrc sourcing envs"
 source /etc/environment
 
 source $(dirname $(gem which colorls))/tab_complete.sh
-
 
 export GIT_EDITOR=vim
 export VISAUL=vim
@@ -57,74 +51,25 @@ ENABLE_CORRECTION="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
   zsh-completions
-  yarn-completion
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 alias up="sudo apt update"
 alias ug="sudo apt upgrade -y"
-#alias l='ls -lFvh'
-#alias ll='ls -lAvh'
-#alias la='ls -lavh'
+alias ull='apt list --upgradable'
+
 alias ls='colorls -h --group-directories-first --almost-all'
 alias l='colorls -h --group-directories-first --long'
 alias ll='colorls -h --group-directories-first --long --almost-all'
+#alias l='ls -lFvh'
+#alias ll='ls -lAvh'
+#alias la='ls -lavh'
 
 alias please=sudo
 alias vim=nvim
@@ -138,25 +83,40 @@ alias getBattery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep 
 alias getFonts='fc-list | cut -d: -f2 | sort | uniq '
 
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH=$HOME/bin:$PATH
+export GOPATH=$HOME/go
+export BREWPATH=/home/linuxbrew/.linuxbrew
+
+if [ -d "$HOME/bin" ]; then
+  PATH=$HOME/bin:$PATH
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH=$HOME/.local/bin:$PATH
+if [ -d "$HOME/.local/bin" ]; then
+  PATH=$HOME/.local/bin:$PATH
 fi
 
-# adding snapd path 
-if [ -d "/snap/bin" ] ; then
-    PATH=/snap/bin:$PATH
+if [ -d "/usr/local/go/bin" ]; then
+  PATH=/usr/local/go/bin:$PATH
 fi
 
-# load apache maven
-if [ -d "$HOME/Apps/apache-maven/bin" ] ; then
-    PATH=$HOME/Apps/apache-maven/bin:$PATH
+if [ -d "$GOPATH/bin" ]; then 
+  PATH=$GOPATH/bin:$PATH
 fi
+
+if [ -d "/snap/bin" ]; then
+  PATH=/snap/bin:$PATH
+fi
+
+if [ -d "$HOME/Apps/apache-maven/bin" ]; then
+  PATH=$HOME/Apps/apache-maven/bin:$PATH
+fi
+
+if [ -d "$BREWPATH" ]; then
+  FPATH=$BREWPATH/share/zsh/site-functions:$FPATH
+  PATH=$BREWPATH/bin:$PATH
+fi
+
+
+export PATH=$PATH
 
 #xmodmap -e "keycode  13 = 4 EuroSign 4 EuroSign"
 /usr/bin/setxkbmap -option "ctrl:swapcaps"
@@ -169,11 +129,6 @@ gsettings set org.gnome.settings-daemon.plugins.keyboard active false
 gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false
 
 
-# set Spaceship ZSH as a prompt
-# autoload -U promptinit; promptinit
-# prompt spaceship
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
-
 xdg-mime default webtorrent-desktop.desktop x-scheme-handler/magnet
-alias ull='apt list --upgradable'
+autoload -U compinit && compinit
+
