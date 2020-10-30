@@ -10,11 +10,11 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
+    //'hyperpower',
+    'hyper-font-ligatures',
     'hyperminimal',
     'hyperborder',
-    //'hyperpower',
     'hyper-dracula',
-    'hyper-font-ligatures',
     //'hyperocean',
     //'hyper-snazzy',
     //'verminal',
@@ -95,7 +95,7 @@ module.exports = {
     selectionColor: 'rgba(248,28,229,0.3)',
 
     // border color (window, tabs)
-    borderColor: '#333',
+    //borderColor: '#333',
 
     // custom CSS to embed in the main window
     css: '',
