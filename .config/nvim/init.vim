@@ -1,8 +1,10 @@
+if !exists('g:vscode')
 call plug#begin('~/.local/share/nvim/plugged')
 
 " --------- FONTS ----------
 Plug 'ryanoasis/nerd-fonts'
 Plug 'ryanoasis/vim-devicons'
+
 
 " --------- THEMES ----------
 Plug 'bcicen/vim-vice'
@@ -86,15 +88,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'alvan/vim-closetag'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'jparise/vim-graphql'        " GraphQL syntax
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 
 "Plug 'pangloss/vim-javascript'    " JavaScript support
 "Plug 'leafgarland/typescript-vim' " TypeScript syntax
-"Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
-
 "Plug 'peitalin/vim-jsx-typescript'
-
 "Plug 'davidhalter/jedi-vim'
-
 "Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -115,6 +114,7 @@ Plug 'mhinz/vim-signify'                      " enable signcolumn
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
+endif
 
 
 let g:miramare_enable_italic = 1
@@ -327,7 +327,8 @@ let g:edge_disable_italic_comment = 1
 "colorscheme edge
 "colorscheme gruvbox
 let g:dracula_colorterm = 0
-colorscheme dracula
+colorscheme dracula_bold
+
 
 " Reload icons after init source
 if exists('g:loaded_webdevicons')

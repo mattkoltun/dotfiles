@@ -1,5 +1,5 @@
 {
-  "pairs.alwaysPairCharacters": ["(", "[", "{", "<", "'", "\"", "`"],
+  "pairs.alwaysPairCharacters": ["(", "[", "{", "'", "\"", "`"],
   "pairs.enableBackspace": true,
   "coc.source.emoji.filetypes": null,
   "codeLens.enable": true,
@@ -73,5 +73,9 @@
   ],
   "python.jediEnabled": false,
   "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true
+  "python.linting.pylintEnabled": true,
+  "cSpell.userWords": [
+    "resonse",
+    "urql"
+  ]
 }
