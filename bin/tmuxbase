@@ -1,0 +1,3 @@
+#!/usr/bin/zsh
+
+tmux attach -t CONSOLE || tmux new -s CONSOLE 
