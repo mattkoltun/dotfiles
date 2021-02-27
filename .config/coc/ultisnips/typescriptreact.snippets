@@ -24,6 +24,27 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
+snippet rttest "React Testing Template" b
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import faker from "faker";
+
+import ${1} from "components/${2}"
+
+describe('<${1} />', () => {
+
+	it('${3}', () => {
+		${4:
+		render(<$1 />)
+		screen.debug()
+		expect(true).toBeTruthy();
+		}
+	});
+
+});
+
+endsnippet
+
 # Import only React
 snippet ri "import react" b
 

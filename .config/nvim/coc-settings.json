@@ -9,18 +9,19 @@
   "diagnostic.infoSign": "•",
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,
-  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.refreshOnInsertMode": false,
   "diagnostic.refreshAfterSave": true,
 
+  "suggest.defaultSortMethod": "alphabetical",
   "suggest.detailField": "preview",
-  "suggest.detailMaxLength": 100,
-  "suggest.enablePreview": true,
-  "suggest.maxPreviewWidth": 45,
+  "suggest.detailMaxLength": 150,
+  "suggest.enablePreview": false,
+  "suggest.maxPreviewWidth": 65,
   "suggest.removeDuplicateItems": true,
   "suggest.autoTrigger": "always",
   "suggest.timeout": 2000,
   "suggest.echodocSupport": true,
-  "suggest.maxCompleteItemCount": 150,
+  "suggest.maxCompleteItemCount": 350,
   "suggest.noselect": false,
 
   "snippets.extends": {
@@ -29,11 +30,13 @@
   },
 
   "coc.source.file.ignoreHidden": false,
+  "coc.preferences.rootPatterns": [".git", ".hg", ".projections.json"],
   "coc.preferences.formatOnType": false,
-  "coc.preferences.formatOnInsertLeave": true,
+  "coc.preferences.formatOnInsertLeave": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "javascriptreact",
+    "javascript.jsx",
     "typescript",
     "typescriptreact",
     "typescript.tsx",
@@ -51,9 +54,10 @@
   "prettier.stylelintIntegration": false,
 
   "tsserver.enable": true,
-  "tsserver.npm": "/usr/local/bin/npm",
   "tsserver.log": "normal",
   "tsserver.maxTsServerMemory": 3000,
+  "tsserver.enableJavascript": true,
+  "typescript.suggest.enabled": true,
 
   "typescript.preferences.quoteStyle": "single",
 
@@ -63,19 +67,45 @@
   "eslint.enable": true,
   "eslint.autoFixOnSave": true,
   "eslint.autoFix": true,
-  "eslint.run": "onSave",
+  "eslint.run": "onType",
   "eslint.filetypes": [
     "javascript",
-    "typescript",
-    "typescriptreact",
+    "javascript.jsx",
     "javascriptreact",
-    "typescript.tsx"
+    "typescript",
+    "typescript.tsx",
+    "typescriptreact"
   ],
-  "python.jediEnabled": false,
+  "python.jediEnabled": true,
   "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true,
+  "python.linting.pep8Enabled": true,
   "cSpell.userWords": [
+    "Fargate",
+    "Koltun",
+    "Metas",
+    "Stringable",
+    "antipattern",
+    "cdkdemo",
+    "codegen",
+    "dataloader",
+    "inmemory",
+    "justdatguymat",
+    "koltunm",
+    "noindex",
+    "nprogress",
+    "postdev",
+    "reinitializing",
+    "repassword",
+    "rerender",
     "resonse",
+    "unfetch",
     "urql"
-  ]
+  ],
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {}
+    }
+  }
 }

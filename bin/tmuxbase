@@ -1,3 +1,3 @@
 #!/usr/bin/zsh
 
-tmux attach -t CONSOLE || tmux new -s CONSOLE 
+tmux attach -t GEEKLAND || tmux new -s GEEKLAND 

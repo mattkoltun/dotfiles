@@ -3,8 +3,8 @@ source /etc/environment
 
 source $(dirname $(gem which colorls))/tab_complete.sh
 
-export GIT_EDITOR=vim
-export VISAUL=vim
+export GIT_EDITOR=nvim
+export VISAUL=nvim
 export EDITOR="$VISUAL"
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.6
 
@@ -74,7 +74,7 @@ alias ll='colorls -h --group-directories-first --long --almost-all'
 alias please=sudo
 alias vim=nvim
 
-alias bootbios=systemctl reboot --firmware-setup
+alias bootbios='systemctl reboot --firmware-setup'
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
@@ -130,5 +130,15 @@ gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false
 
 
 xdg-mime default webtorrent-desktop.desktop x-scheme-handler/magnet
-autoload -U compinit && compinit
+# autoload -U compinit && compinit
 
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+#alias k=kubectl
+complete -F __start_kubectl k
+complete -C '/home/mati/.local/bin/aws_completer' aws

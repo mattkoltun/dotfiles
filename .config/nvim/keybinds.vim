@@ -41,7 +41,7 @@ nmap go o<ESC>k
 nmap I ^i
 nmap A $a
 
-nnoremap <leader>d "_d
+"nnoremap <leader>d "_d
 nnoremap x "_x
 
 nmap <C-r> <C-r>zz

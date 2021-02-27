@@ -120,11 +120,17 @@ endif
 let g:miramare_enable_italic = 1
 let g:miramare_disable_italic_comment = 0
 
+" ------- LOAD configs ----------
+source $HOME/.config/nvim/settings.vim
+source $HOME/.config/nvim/fzf.vim
+source $HOME/.config/nvim/coc.vim
+source $HOME/.config/nvim/keybinds.vim
+
 " --------- Reload CONFIG at save  ----------
-nmap <leader>rr :source $MYVIMRC<cr> 
+noremap <leader>rr :source $MYVIMRC<cr> 
 augroup reload_vimrc " {
     autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC | AirlineRefresh
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
     autocmd BufWritePost $MYVIMRC AirlineRefresh
     autocmd BufWritePost $MYVIMRC redraw
     autocmd BufWritePost $MYVIMRC redrawstatus
@@ -132,7 +138,9 @@ augroup END " }
 
 " ---------- SET FILE TYPES ----------
 autocmd BufNewFile,BufRead *Dockerfile* set filetype=Dockerfile
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+autocmd BufNewFile,BufRead *.tf set filetype=terraform
 
 " ---------- SWITCH DARK/LIGHT MODES -------------
 function ToggleMode()
@@ -145,16 +153,7 @@ function ToggleMode()
   endif
 endfunction
 
-nnoremap <C-w>m  :call ToggleMode()<cr>
-
-
-" ------- LOAD configs ----------
-source $HOME/.config/nvim/settings.vim
-source $HOME/.config/nvim/fzf.vim
-source $HOME/.config/nvim/coc.vim
-source $HOME/.config/nvim/keybinds.vim
-
-
+nnoremap <C-w>m :call ToggleMode()<cr>
 
 set conceallevel=1
 
@@ -324,10 +323,10 @@ let g:airline_symbols.linenr = ''
 let g:edge_style = 'neon'
 let g:edge_disable_italic_comment = 1
 
-"colorscheme edge
-"colorscheme gruvbox
 let g:dracula_colorterm = 0
-colorscheme dracula_bold
+"colorscheme edge
+colorscheme gruvbox
+"colorscheme dracula_bold
 
 
 " Reload icons after init source

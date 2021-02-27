@@ -114,10 +114,10 @@ nmap <silent> gn <Plug>(coc-diagnostic-next)
 nmap <silent> gp <Plug>(coc-diagnostic-prev)
 
 " GoTo code navigation.
-nmap <silent> <leader>gd <Plug>(coc-definition)zz
-nmap <silent> <leader>gy <Plug>(coc-type-definition)zz
-nmap <silent> <leader>gr <Plug>(coc-references)zz
-nmap <silent> <leader>gi <Plug>(coc-implementation)zz
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
 
 nmap <silent> <leader>rn <Plug>(coc-rename)
 
@@ -145,7 +145,7 @@ xmap <silent> <TAB> <Plug>(coc-range-select)
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json,javascript,javascriptreact setl formatexpr=CocAction('formatSelected')
+  autocmd FileType typescript,json,javascript,javascriptreact,typescript.tsx,javascript.jsx setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
