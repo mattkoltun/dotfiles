@@ -12,6 +12,9 @@ local function map(mode, lhs, rhs, opts)
   if not keys.active[keys.parse({ lhs, mode = mode }).id] then
     opts = opts or {}
     opts.silent = opts.silent ~= false
+    if opts.remap and not vim.g.vscode then
+      opts.remap = nil
+    end
     vim.keymap.set(mode, lhs, rhs, opts)
   end
 end
@@ -19,7 +22,6 @@ end
 map({ "i" }, "jj", "<cmd>noh<cr><esc>", { desc = "Exit insert mode" })
 
 map("n", "<leader>rc", "<cmd>source $MYVIMRC <cr>", { desc = "Reload config" })
-map("n", "<leader>n", "<cmd>noh<cr>", { desc = "Deselect search" })
 
 -- better up/down
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -66,6 +68,7 @@ end
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+map("n", "<leader>n", "<cmd>noh<cr>", { desc = "Deselect search" })
 
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
@@ -86,14 +89,8 @@ map("n", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result
 map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
--- Add undo break-points
-map("i", ",", ",<c-g>u")
-map("i", ".", ".<c-g>u")
-map("i", ";", ";<c-g>u")
-
 -- save file
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
-map({ "n" }, "<leader>w", "<cmd>w<cr><esc>", { noremap = true, desc = "Save file" })
 
 -- better indenting
 map("v", "<", "<gv")
@@ -115,17 +112,22 @@ end
 
 -- toggle options
 map("n", "<leader>uf", require("lazyvim.plugins.lsp.format").toggle, { desc = "Toggle format on Save" })
+
 map("n", "<leader>us", function()
   Util.toggle("spell")
 end, { desc = "Toggle Spelling" })
+
 map("n", "<leader>uw", function()
   Util.toggle("wrap")
 end, { desc = "Toggle Word Wrap" })
+
 map("n", "<leader>ul", function()
   Util.toggle("relativenumber", true)
   Util.toggle("number")
 end, { desc = "Toggle Line Numbers" })
+
 map("n", "<leader>ud", Util.toggle_diagnostics, { desc = "Toggle Diagnostics" })
+
 local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 map("n", "<leader>uc", function()
   Util.toggle("conceallevel", false, { 0, conceallevel })
@@ -135,6 +137,7 @@ end, { desc = "Toggle Conceal" })
 map("n", "<leader>gg", function()
   Util.float_term({ "lazygit" }, { cwd = Util.get_root(), esc_esc = false })
 end, { desc = "Lazygit (root dir)" })
+
 map("n", "<leader>gG", function()
   Util.float_term({ "lazygit" }, { esc_esc = false })
 end, { desc = "Lazygit (cwd)" })
@@ -157,7 +160,7 @@ end, { desc = "Terminal (cwd)" })
 map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 
 -- windows
-map("n", "<leader>c", "<C-W>c", { desc = "Delete window" })
+map("n", "<leader>wd", "<C-W>c", { desc = "Delete window" })
 -- map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })
 -- map("n", "<leader>w-", "<C-W>s", { desc = "Split window below" })
 -- map("n", "<leader>w|", "<C-W>v", { desc = "Split window right" })

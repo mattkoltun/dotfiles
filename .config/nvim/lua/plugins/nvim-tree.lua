@@ -26,8 +26,12 @@ return {
       },
       filters = {
         dotfiles = false,
+        git_ignored = false,
+        git_clean = false,
+        no_buffer = false,
       },
       view = {
+        width = 60,
         float = {
           quit_on_focus_loss = true,
         },

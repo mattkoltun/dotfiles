@@ -13,14 +13,15 @@ return {
       {
         "<leader>unl",
         function()
-          require("notify").history({ include_hidden = true })
+          require("notify").history({include_hidden = false})
         end,
         desc = "Show notification history",
       },
     },
     opts = {
-      timeout = 4500,
-      stages = "fade",
+      fps = 30,
+      timeout = 300,
+      stages = "slide",
       render = "default",
       max_height = function()
         return math.floor(vim.o.lines * 0.75)
@@ -29,12 +30,16 @@ return {
         return math.floor(vim.o.columns * 0.75)
       end,
     },
+    config = function(_, opts)
+      require("notify").setup(opts)
+    end,
     init = function()
       -- when noice is not enabled, install notify on VeryLazy
       local Util = require("lazyvim.util")
       if not Util.has("noice.nvim") then
         Util.on_very_lazy(function()
           vim.notify = require("notify")
+          require("telescope").load_extension("notify")
         end)
       end
     end,
