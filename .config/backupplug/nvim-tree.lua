@@ -31,7 +31,7 @@ return {
         no_buffer = false,
       },
       view = {
-        width = 30,
+        width = 60,
         float = {
           quit_on_focus_loss = true,
         },
