@@ -2,6 +2,12 @@ return {
   {
     "ludovicchabant/vim-gutentags",
   },
+  -- {
+  --   "f-person/git-blame.nvim",
+  --   opts = {
+  --     enabled = true,
+  --   },
+  -- },
   {
     "mhinz/vim-signify",
   },
