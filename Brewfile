@@ -6,7 +6,9 @@ fish
 fzf
 gh
 git
+gnu-sed
 jq
+kubernetes-cli
 make
 neovim
 node
