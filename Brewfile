@@ -1,7 +1,5 @@
 awscli
 azure-cli
-docker
-docker-compose
 fish
 fzf
 gh
