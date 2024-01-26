@@ -20,7 +20,7 @@ function fish_prompt
     set_color normal
     if test -n "$BASENAME"
         # set_color green
-        printf "(%s) " (set_color green)(basename $BASENAME)(set_color normal)
+        printf "(%s)  " (set_color green)(basename $BASENAME)(set_color normal)
     end
 
     if test -n "$AWS_PROFILE"

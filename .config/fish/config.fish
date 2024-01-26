@@ -16,5 +16,19 @@ abbr -a d docker
 abbr -a rc source ~/.config/fish/config.fish
 abbr -a ws workspace
 
+abbr -a vui bash $VECTRA_TOOLBOX/vui/vui.sh
+abbr -a vui-cloud bash $VECTRA_TOOLBOX/vui/cloud.sh
+abbr -a vui-local bash $VECTRA_TOOLBOX/vui/local.sh
+
+# pyenv init - | source
+# eval "$(pyenv init -)"
+# eval "$(pyenv init --path)"
+
 starship init fish | source
+
+function save_history --on-event fish_preexec
+    history --save
+    history --merge
+end
+
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'

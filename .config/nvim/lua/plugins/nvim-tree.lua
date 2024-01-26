@@ -29,6 +29,7 @@ return {
         git_ignored = false,
         git_clean = false,
         no_buffer = false,
+        custom = { "__pycache__", ".pyc$", ".git" },
       },
       view = {
         width = 30,

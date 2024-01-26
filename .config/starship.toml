@@ -1,7 +1,7 @@
 format = '$time$all'
 
 [env_var]
-format = '[$env_value]($style)'
+format = '[$env_value ]($style)'
 variable = 'BASENAME'
 default = ''
 
