@@ -6,7 +6,8 @@ return {
   keys = {
     { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
     { "<leader>/", Util.telescope("live_grep", { hidden = true, cwd = false }), desc = "Find in Files (Grep)" },
-    { "<leader>rg", Util.telescope("grep_string", { hidden = false, cwd = false }), desc = "Word (cwd)" },
+    -- { "<leader>rg", Util.telescope("grep_string", { hidden = false, cwd = false }), desc = "Word (cwd)" },
+    { "<leader>rg", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Word (cwd)" },
     { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
     { "<leader><space>", Util.telescope("files", { hidden = true, cwd = false }), desc = "Find Files (root dir)" },
     { "<leader>p", Util.telescope("find_files", { hidden = true, cwd = false }), desc = "Find Files (root dir)" },
