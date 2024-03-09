@@ -4,7 +4,10 @@ fish
 fzf
 gh
 git
+git-delta
 gnu-sed
+go
+hashicorp/tap/vault
 jq
 kubernetes-cli
 make
@@ -16,5 +19,7 @@ ripgrep
 starship
 terragrunt
 tfenv
+tig
 tmux
+tree
 xq
