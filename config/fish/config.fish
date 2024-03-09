@@ -24,6 +24,10 @@ abbr -a vui-local bash $VECTRA_TOOLBOX/vui/local.sh
 # eval "$(pyenv init -)"
 # eval "$(pyenv init --path)"
 
+# unalias brew 2>/dev/null
+# brewser=$(stat -f "%Su" $(which brew))
+# alias brew='sudo -Hu '$brewser' brew'
+
 starship init fish | source
 
 function save_history --on-event fish_preexec
