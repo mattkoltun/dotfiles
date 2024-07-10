@@ -42,8 +42,8 @@ format = '[⏱ $duration]($style) '
 # [deno]
 # format = '[$symbol($version)]($style) '
 
-[docker_context]
-format = '[$symbol$context]($style) '
+# [docker_context]
+# format = '[$symbol$context]($style) '
 
 # [dotnet]
 # format = '[$symbol($version)(🎯 $tfm)]($style) '
@@ -72,8 +72,8 @@ format = '[$symbol$branch]($style) '
 [git_status]
 format = '([$all_status$ahead_behind]($style)) '
 
-[golang]
-format = '[$symbol($version)]($style) '
+# [golang]
+# format = '[$symbol($version)]($style) '
 
 # [gradle]
 # format = '[$symbol($version)]($style) '
@@ -102,8 +102,8 @@ format = '[$symbol($version)]($style) '
 # [kotlin]
 # format = '[$symbol($version)]($style) '
 
-[kubernetes]
-format = '[$symbol$context( \($namespace\))]($style) '
+# [kubernetes]
+# format = '[$symbol$context( \($namespace\))]($style) '
 
 # [lua]
 # format = '[$symbol($version)]($style) '
@@ -120,8 +120,8 @@ format = '[$symbol$context( \($namespace\))]($style) '
 # [nix_shell]
 # format = '[$symbol$state( \($name\))]($style) '
 
-[nodejs]
-format = '[$symbol($version)]($style) '
+# [nodejs]
+# format = '[$symbol($version)]($style) '
 
 # [ocaml]
 # format = '[$symbol($version)(\($switch_indicator$switch_name\))]($style) '
@@ -180,15 +180,15 @@ format = '[as $symbol]($style) '
 # [swift]
 # format = '[$symbol($version)]($style) '
 
-[terraform]
-format = '[$symbol$workspace]($style) '
+# [terraform]
+# format = '[$symbol$workspace]($style) '
 
 [time]
 format = '[$time]($style) '
 disabled = false
 
-[username]
-format = '[$user]($style) '
+# [username]
+# format = '[$user]($style) '
 
 # [vagrant]
 # format = '[$symbol($version)]($style) '

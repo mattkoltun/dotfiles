@@ -36,4 +36,4 @@ map("n", "<C-n>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 map("n", "<leader>n", "<cmd>noh<cr>", { desc = "Deselect search" })
 
 -- Search
-map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
+map({ "n", "x" }, "<leader>fw", "*N", { desc = "Search word under cursor" })

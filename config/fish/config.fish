@@ -4,6 +4,7 @@ end
 
 set -agx PATH /Users/mkoltun/bin
 
+
 set -x AWS_DEFAULT_OUTPUT json
 set -x AWS_PAGER
 set -x AWS_PROFILE bastion-sso
@@ -11,7 +12,8 @@ set -x AWS_PROFILE bastion-sso
 abbr -a tf terraform
 abbr -a tg terragrunt
 abbr -a k kubectl
-abbr -a dc docker-compose
+abbr -a dc docker compose
+abbr -a docker-compose docker compose
 abbr -a d docker
 abbr -a rc source ~/.config/fish/config.fish
 abbr -a ws workspace
@@ -27,6 +29,7 @@ abbr -a vui-local bash $VECTRA_TOOLBOX/vui/local.sh
 # unalias brew 2>/dev/null
 # brewser=$(stat -f "%Su" $(which brew))
 # alias brew='sudo -Hu '$brewser' brew'
+
 
 starship init fish | source
 

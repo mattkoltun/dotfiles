@@ -32,7 +32,7 @@ return {
         custom = { "__pycache__", ".pyc$", ".git" },
       },
       view = {
-        width = 30,
+        width = 80,
         float = {
           quit_on_focus_loss = true,
         },
