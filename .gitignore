@@ -5,3 +5,9 @@
 */*.swo
 *.swp
 *.swo
+
+config/gh
+config/github-copilot
+config/omf
+config/raycast
+config/karabiner

@@ -3,8 +3,7 @@ function workspace
     set -l project_path $REPO_DIR/$project_name
 
     if not test -d $project_path; and test "$argv[2]" = clone
-        cd $REPO_DIR
-        git clone ssh://git@sourcecode.vectra.io:7999/sp/$project_name.git
+        git clone ssh://git@sourcecode.vectra.io:7999/sp/$project_name.git $REPO_DIR/$project_name
     else if not test -d $project_path
         mkdir -p $project_path
     end

@@ -34,6 +34,8 @@ abbr -a vui-local bash $VECTRA_TOOLBOX/vui/local.sh
 #starship init fish | source
 
 source (/opt/homebrew/bin/starship init fish --print-full-init | psub)
+pyenv init - | source
+
 
 function save_history --on-event fish_preexec
     history --save
