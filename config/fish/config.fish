@@ -31,7 +31,9 @@ abbr -a vui-local bash $VECTRA_TOOLBOX/vui/local.sh
 # alias brew='sudo -Hu '$brewser' brew'
 
 
-starship init fish | source
+#starship init fish | source
+
+source (/opt/homebrew/bin/starship init fish --print-full-init | psub)
 
 function save_history --on-event fish_preexec
     history --save

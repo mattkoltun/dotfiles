@@ -1,25 +1,34 @@
-awscli
-azure-cli
-fish
-fzf
-gh
-git
-git-delta
-gnu-sed
-go
-hashicorp/tap/vault
-jq
-kubernetes-cli
-make
-neovim
-node
-powershell/tap/powershell
-pyenv-virtualenv
-ripgrep
-starship
-terragrunt
-tfenv
-tig
-tmux
-tree
-xq
+tap "homebrew/bundle"
+brew "awscli"
+brew "azure-cli"
+brew "fish"
+brew "fzf"
+brew "gh"
+brew "git"
+brew "git-delta"
+brew "jq"
+brew "kubernetes-cli"
+brew "make"
+brew "neovim"
+brew "node"
+brew "pyenv-virtualenv"
+brew "ripgrep"
+brew "starship"
+brew "terragrunt"
+brew "tfenv"
+brew "tig"
+brew "tmux"
+brew "tree"
+brew "xq"
+cask "alt-tab"
+cask "bettertouchtool"
+cask "caffeine"
+cask "clipy"
+cask "docker"
+cask "font-hack-nerd-font"
+cask "iterm2"
+cask "karabiner-elements"
+cask "raycast"
+cask "scroll-reverser"
+cask "visual-studio-code"
+cask "warp"
