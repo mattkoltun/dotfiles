@@ -1,13 +1,20 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export AWS_DEFAULT_OUTPUT:json
+SETUVAR --export BRAINID:saas89e03670fd5a4d51bf0143a415e4572d
+SETUVAR --export CLICOLOR:1
+SETUVAR --export DOCKER_BUILDKIT:1
+SETUVAR --export DOCKER_DEFAULT_PLATFORM:linux/arm64
 SETUVAR EDITOR:nvim
 SETUVAR GIT_EDITOR:nvim
+SETUVAR --export LSCOLORS:gxfxcxdxbxegedabagaced
 SETUVAR --export PYENV_ROOT:/Users/mkoltun/\x2epyenv
 SETUVAR --path PYTHONPATH:\x2e/src
-SETUVAR REPO_DIR:/Users/mkoltun/repos/
+SETUVAR REPO_DIR:/Users/mkoltun/repos
 SETUVAR --export VECTRA_TOOLBOX:/Users/mkoltun/repos/vectra_toolbox
 SETUVAR VISUAL:nvim
+SETUVAR --export VUI_EXTERNAL_ID:109383609683
+SETUVAR --export VUI_INTERNAL_BRAIN_ID:saas751dccc6f5f049eba0f40c56b15a7afb
 SETUVAR --export VUI_PATH:/Users/mkoltun/repos/vui
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_danhper_2F_fish_2D_ssh_2D_agent_files:\x7e/\x2econfig/fish/functions/__ssh_agent_is_started\x2efish\x1e\x7e/\x2econfig/fish/functions/__ssh_agent_start\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fish\x2dssh\x2dagent\x2efish
@@ -57,4 +64,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dFFCC66
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/opt/homebrew/bin
+SETUVAR fish_user_paths:/opt/homebrew/opt/openjdk\x4011/bin\x1e/opt/homebrew/opt/openjdk\x4017/bin\x1e/Users/mkoltun/repos/mfa/dist/osx\x1e/opt/homebrew/bin

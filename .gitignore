@@ -12,3 +12,4 @@ config/omf
 config/raycast
 config/karabiner
 config/fish/fish_variables
+config/fish/secrets.fish

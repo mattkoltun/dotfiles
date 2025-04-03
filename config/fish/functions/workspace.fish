@@ -10,7 +10,9 @@ function workspace
 
     set -l tmux_current_session $(tmux display -p "#S")
 
-    tmux new-window -t $tmux_current_session -n $(echo $project_name | string upper) -c $project_path
-    tmux select-pane -t "$tmux_current_session.0" -c $project_path
-    tmux split-window -t $tmux_current_session -c $project_path
+    echo "Tmux session: $tmux_current_session"
+
+    tmux new-window -a -P -t $tmux_current_session -n $(echo $project_name | string upper) -c $project_path
+    tmux select-pane -t :.1
+    tmux split-window -t :.1 -c $project_path
 end

@@ -2,7 +2,9 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      -- colorscheme = "kanagawa-wave",
+      -- vim.cmd.colorscheme("jellybeans")
+      colorscheme = "catppuccin-frappe",
     },
   },
   -- THEMES --
@@ -11,7 +13,16 @@ return {
   { "dikiaap/minimalist", lazy = true },
   { "dracula/vim", lazy = true },
   { "flazz/vim-colorschemes", lazy = true },
-  { "joshdick/onedark.vim", lazy = true },
+  {
+    "navarasu/onedark.nvim",
+    lazy = true,
+    config = function()
+      require("onedark").setup({
+        style = "warm",
+      })
+      require("onedark").load()
+    end,
+  },
   { "mhartington/oceanic-next", lazy = true },
   { "mhinz/vim-janah", lazy = true },
   { "rafi/awesome-vim-colorschemes", lazy = true },
@@ -81,5 +92,12 @@ return {
     "folke/tokyonight.nvim",
     lazy = true,
     opts = { style = "moon" },
+  },
+  {
+    "wtfox/jellybeans.nvim",
+    priority = 1000,
+    config = function()
+      require("jellybeans").setup()
+    end,
   },
 }

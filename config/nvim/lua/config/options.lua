@@ -4,6 +4,7 @@
 -- This file is automatically loaded by plugins.config
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.lazyvim_picker = "telescope"
 
 local opt = vim.opt
 

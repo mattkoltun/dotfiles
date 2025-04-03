@@ -30,6 +30,7 @@ abbr -a vui-local bash $VECTRA_TOOLBOX/vui/local.sh
 # brewser=$(stat -f "%Su" $(which brew))
 # alias brew='sudo -Hu '$brewser' brew'
 
+source $HOME/.config/fish/secrets.fish
 
 #starship init fish | source
 
