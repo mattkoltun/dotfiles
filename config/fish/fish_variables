@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export AWS_DEFAULT_OUTPUT:json
+SETUVAR --export AWS_DEFAULT_REGION:us\x2dwest\x2d2
 SETUVAR --export BRAINID:saas89e03670fd5a4d51bf0143a415e4572d
 SETUVAR --export CLICOLOR:1
 SETUVAR --export DOCKER_BUILDKIT:1
@@ -64,4 +65,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dFFCC66
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/opt/homebrew/opt/openjdk\x4011/bin\x1e/opt/homebrew/opt/openjdk\x4017/bin\x1e/Users/mkoltun/repos/mfa/dist/osx\x1e/opt/homebrew/bin
+SETUVAR fish_user_paths:/Users/mkoltun/\x2ecargo/bin\x1e/opt/homebrew/opt/openjdk\x4011/bin\x1e/opt/homebrew/opt/openjdk\x4017/bin\x1e/Users/mkoltun/repos/mfa/dist/osx\x1e/opt/homebrew/bin

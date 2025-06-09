@@ -4,7 +4,7 @@ return {
     opts = {
       -- colorscheme = "kanagawa-wave",
       -- vim.cmd.colorscheme("jellybeans")
-      colorscheme = "catppuccin-frappe",
+      colorscheme = "catppuccin-macchiato",
     },
   },
   -- THEMES --
@@ -93,11 +93,11 @@ return {
     lazy = true,
     opts = { style = "moon" },
   },
-  {
-    "wtfox/jellybeans.nvim",
-    priority = 1000,
-    config = function()
-      require("jellybeans").setup()
-    end,
-  },
+  --   {
+  --     "wtfox/jellybeans.nvim",
+  --     priority = 1000,
+  --     config = function()
+  --       require("jellybeans").setup()
+  --     end,
+  --   },
 }

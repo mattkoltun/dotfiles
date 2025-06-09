@@ -1,7 +1,3 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
-
 set -agx PATH /Users/mkoltun/bin
 
 
@@ -30,12 +26,6 @@ abbr -a vui-local bash $VECTRA_TOOLBOX/vui/local.sh
 # brewser=$(stat -f "%Su" $(which brew))
 # alias brew='sudo -Hu '$brewser' brew'
 
-source $HOME/.config/fish/secrets.fish
-
-#starship init fish | source
-
-source (/opt/homebrew/bin/starship init fish --print-full-init | psub)
-pyenv init - | source
 
 
 function save_history --on-event fish_preexec
@@ -44,3 +34,11 @@ function save_history --on-event fish_preexec
 end
 
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
+
+if status is-interactive
+    source $HOME/.config/fish/secrets.fish
+    # Commands to run in interactive sessions can go here
+    source (/opt/homebrew/bin/starship init fish --print-full-init | psub)
+    pyenv init - | source
+    #starship init fish | source
+end
