@@ -4,7 +4,8 @@ return {
     opts = {
       -- colorscheme = "kanagawa-wave",
       -- vim.cmd.colorscheme("jellybeans")
-      colorscheme = "catppuccin-macchiato",
+      -- colorscheme = "catppuccin-macchiato",
+      colorscheme = "catppuccin-mocha",
     },
   },
   -- THEMES --

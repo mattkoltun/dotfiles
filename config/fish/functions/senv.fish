@@ -19,6 +19,8 @@ function senv
             set -g -x AWS_PROFILE saas-ingestion-dev
         case app
             set -g -x AWS_PROFILE saas-app-dev
+        case ai
+            set -g -x AWS_PROFILE vectra-genai-dev
         case '*'
             return 1
     end

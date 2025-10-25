@@ -1,11 +1,10 @@
 return {
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "jdtls" },
+      ensure_installed = { "jdtls", "rust_analyzer" },
     },
   },
-
   {
     "neovim/nvim-lspconfig",
     opts = {

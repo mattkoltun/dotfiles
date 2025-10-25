@@ -42,3 +42,4 @@ if status is-interactive
     pyenv init - | source
     #starship init fish | source
 end
+fish_add_path $HOME/.local/bin
