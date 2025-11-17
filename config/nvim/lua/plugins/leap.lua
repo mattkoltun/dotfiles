@@ -1,6 +1,6 @@
 return {
   "ggandor/leap.nvim",
-  lazy = false,
+  lazy = true,
   event = "VeryLazy",
   keys = {
     { "r", mode = { "n", "x", "o" }, desc = "Leap forward to" },

@@ -1,6 +1,5 @@
 set -agx PATH /Users/mkoltun/bin
 
-
 set -x AWS_DEFAULT_OUTPUT json
 set -x AWS_PAGER
 set -x AWS_PROFILE bastion-sso
@@ -13,6 +12,8 @@ abbr -a docker-compose docker compose
 abbr -a d docker
 abbr -a rc source ~/.config/fish/config.fish
 abbr -a ws workspace
+abbr -a gdft git difftool
+abbr -a gdftc git difftool --cached
 
 abbr -a vui bash $VECTRA_TOOLBOX/vui/vui.sh
 abbr -a vui-cloud bash $VECTRA_TOOLBOX/vui/cloud.sh
@@ -25,8 +26,6 @@ abbr -a vui-local bash $VECTRA_TOOLBOX/vui/local.sh
 # unalias brew 2>/dev/null
 # brewser=$(stat -f "%Su" $(which brew))
 # alias brew='sudo -Hu '$brewser' brew'
-
-
 
 function save_history --on-event fish_preexec
     history --save
@@ -43,3 +42,10 @@ if status is-interactive
     #starship init fish | source
 end
 fish_add_path $HOME/.local/bin
+
+# pnpm
+set -gx PNPM_HOME /Users/mkoltun/Library/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

@@ -1,23 +1,31 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export ANTHROPIC_MODEL:us\x2eanthropic\x2eclaude\x2dhaiku\x2d4\x2d5\x2d20251001\x2dv1\x3a0
 SETUVAR --export AWS_DEFAULT_OUTPUT:json
 SETUVAR --export AWS_DEFAULT_REGION:us\x2dwest\x2d2
 SETUVAR --export BRAINID:saas89e03670fd5a4d51bf0143a415e4572d
+SETUVAR --export CLAUDE_CODE_MAX_OUTPUT_TOKENS:60000
+SETUVAR --export CLAUDE_CODE_USE_BEDROCK:1
 SETUVAR --export CLICOLOR:1
+SETUVAR --export CONFLUENCE_URL:https\x3a//vectra\x2dai\x2eatlassian\x2enet/wiki
+SETUVAR --export DISABLE_PROMPT_CACHING:1
 SETUVAR --export DOCKER_BUILDKIT:1
-SETUVAR --export DOCKER_DEFAULT_PLATFORM:linux/arm64
 SETUVAR EDITOR:nvim
 SETUVAR GIT_EDITOR:nvim
+SETUVAR --export JIRA_URL:https\x3a//jira\x2evectra\x2eio
+SETUVAR --export KITTY_CONFIG_DIRECTORY:/Users/mkoltun/\x2econfig/kitty/
+SETUVAR --export KITTY_LISTEN_ON:unix\x3a/tmp/mykitty
 SETUVAR --export LSCOLORS:gxfxcxdxbxegedabagaced
 SETUVAR --export PYENV_ROOT:/Users/mkoltun/\x2epyenv
 SETUVAR --path PYTHONPATH:\x2e/src
 SETUVAR REPO_DIR:/Users/mkoltun/repos
+SETUVAR --export TERM:kitty
 SETUVAR --export VECTRA_TOOLBOX:/Users/mkoltun/repos/vectra_toolbox
 SETUVAR VISUAL:nvim
 SETUVAR --export VUI_EXTERNAL_ID:109383609683
 SETUVAR --export VUI_INTERNAL_BRAIN_ID:saas751dccc6f5f049eba0f40c56b15a7afb
 SETUVAR --export VUI_PATH:/Users/mkoltun/repos/vui
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3800
 SETUVAR _fisher_danhper_2F_fish_2D_ssh_2D_agent_files:\x7e/\x2econfig/fish/functions/__ssh_agent_is_started\x2efish\x1e\x7e/\x2econfig/fish/functions/__ssh_agent_start\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fish\x2dssh\x2dagent\x2efish
 SETUVAR _fisher_jhillyerd_2F_plugin_2D_git_files:\x7e/\x2econfig/fish/functions/__git\x2ebranch_has_wip\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2ecurrent_branch\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2edefault_branch\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2edestroy\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2einit\x2efish\x1e\x7e/\x2econfig/fish/functions/gbage\x2efish\x1e\x7e/\x2econfig/fish/functions/gbda\x2efish\x1e\x7e/\x2econfig/fish/functions/gdv\x2efish\x1e\x7e/\x2econfig/fish/functions/gignored\x2efish\x1e\x7e/\x2econfig/fish/functions/glp\x2efish\x1e\x7e/\x2econfig/fish/functions/grename\x2efish\x1e\x7e/\x2econfig/fish/functions/grt\x2efish\x1e\x7e/\x2econfig/fish/functions/gtest\x2efish\x1e\x7e/\x2econfig/fish/functions/gtl\x2efish\x1e\x7e/\x2econfig/fish/functions/gunwip\x2efish\x1e\x7e/\x2econfig/fish/functions/gwip\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/git\x2efish
 SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:\x7e/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/autopair\x2efish
@@ -25,44 +33,45 @@ SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fish
 SETUVAR _fisher_patrickf1_2F_fzf_2E_fish_files:\x7e/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_changed_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_diff_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_processes\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e\x7e/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejhillyerd/plugin\x2dgit\x1ejorgebucaran/autopair\x2efish\x1epatrickf1/fzf\x2efish\x1edanhper/fish\x2dssh\x2dagent
 SETUVAR _fisher_upgraded_to_4_4:\x1d
-SETUVAR fish_color_autosuggestion:707A8C
+SETUVAR --export ddbunmarshal:def\x20ddb\x3a\x0a\x20\x20if\x20type\x3d\x3d\x22object\x22\x20and\x20\x28keys\x7clength\x29\x3d\x3d1\x20then\x0a\x20\x20\x20\x20if\x20has\x28\x22S\x22\x29\x20then\x20\x2eS\x0a\x20\x20\x20\x20elif\x20has\x28\x22N\x22\x29\x20then\x20\x28\x2eN\x7ctonumber\x29\x0a\x20\x20\x20\x20elif\x20has\x28\x22BOOL\x22\x29\x20then\x20\x2eBOOL\x0a\x20\x20\x20\x20elif\x20has\x28\x22NULL\x22\x29\x20then\x20null\x0a\x20\x20\x20\x20elif\x20has\x28\x22L\x22\x29\x20then\x20\x28\x2eL\x20\x7c\x20map\x28ddb\x29\x29\x0a\x20\x20\x20\x20elif\x20has\x28\x22M\x22\x29\x20then\x20\x28\x2eM\x20\x7c\x20map_values\x28ddb\x29\x29\x0a\x20\x20\x20\x20else\x20\x2e\x0a\x20\x20\x20\x20end\x0a\x20\x20elif\x20type\x3d\x3d\x22object\x22\x20then\x20map_values\x28ddb\x29\x0a\x20\x20elif\x20type\x3d\x3d\x22array\x22\x20then\x20map\x28ddb\x29\x0a\x20\x20else\x20\x2e\x0a\x20\x20end\x3b\x20ddb
+SETUVAR fish_color_autosuggestion:969896
 SETUVAR fish_color_cancel:\x2d\x2dreverse
-SETUVAR fish_color_command:5CCFE6
-SETUVAR fish_color_comment:5C6773
-SETUVAR fish_color_cwd:73D0FF
+SETUVAR fish_color_command:b294bb
+SETUVAR fish_color_comment:f0c674
+SETUVAR fish_color_cwd:green
 SETUVAR fish_color_cwd_root:red
-SETUVAR fish_color_end:F29E74
-SETUVAR fish_color_error:FF3333
-SETUVAR fish_color_escape:95E6CB
+SETUVAR fish_color_end:b294bb
+SETUVAR fish_color_error:cc6666
+SETUVAR fish_color_escape:00a6b2
 SETUVAR fish_color_history_current:\x2d\x2dbold
 SETUVAR fish_color_host:normal
-SETUVAR fish_color_host_remote:\x1d
-SETUVAR fish_color_keyword:\x1d
+SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_keyword:b294bb
 SETUVAR fish_color_match:F28779
-SETUVAR fish_color_normal:CBCCC6
-SETUVAR fish_color_operator:FFCC66
-SETUVAR fish_color_option:\x1d
-SETUVAR fish_color_param:CBCCC6
-SETUVAR fish_color_quote:BAE67E
-SETUVAR fish_color_redirection:D4BFFF
-SETUVAR fish_color_search_match:\x2d\x2dbackground\x3dFFCC66
-SETUVAR fish_color_selection:\x2d\x2dbackground\x3dFFCC66
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:00a6b2
+SETUVAR fish_color_option:81a2be
+SETUVAR fish_color_param:81a2be
+SETUVAR fish_color_quote:b5bd68
+SETUVAR fish_color_redirection:8abeb7
+SETUVAR fish_color_search_match:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
-SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_color_valid_path:\x2d\x2dunderline\x3dsingle
 SETUVAR fish_greeting:\U0001f41f
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_background:\x1d
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D
-SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
-SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline\x3dsingle
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_secondary_background:\x1d
 SETUVAR fish_pager_color_secondary_completion:\x1d
 SETUVAR fish_pager_color_secondary_description:\x1d
 SETUVAR fish_pager_color_secondary_prefix:\x1d
-SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dFFCC66
+SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/Users/mkoltun/\x2ecargo/bin\x1e/opt/homebrew/opt/openjdk\x4011/bin\x1e/opt/homebrew/opt/openjdk\x4017/bin\x1e/Users/mkoltun/repos/mfa/dist/osx\x1e/opt/homebrew/bin
+SETUVAR fish_user_paths:/Users/mkoltun/\x2elocal/bin\x1e/Users/mkoltun/\x2ecargo/bin\x1e/opt/homebrew/opt/openjdk\x4011/bin\x1e/opt/homebrew/opt/openjdk\x4017/bin\x1e/Users/mkoltun/repos/mfa/dist/osx\x1e/opt/homebrew/bin
